@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Gauge Name="Heading Indicator" Version="1.0">
+  <Image Name="Heading_Background.bmp" ImageSizes="240,240,240,240"/>
+  <Element>
+    <Position X="120" Y="120"/>
+    <Image Name="Heading_Card.bmp" ImageSizes="240,240,240,240">
+      <Axis X="120" Y="120"/>
+    </Image>
+    <Rotate>
+      <Value>(A:sim/cockpit2/gauges/indicators/heading_AHARS_deg_mag_pilot, ndegree)</Value>
+    </Rotate>
+  </Element>
+  <Element>
+    <Position X="120" Y="120"/>
+    <Image Name="Heading_HeadingBug.bmp" ImageSizes="17,109,17,109">
+      <Axis X="9" Y="109"/>
+    </Image>
+    <Rotate>
+      <Value>(A:sim/cockpit/autopilot/heading_mag, pdegree) (A:sim/cockpit2/gauges/indicators/heading_AHARS_deg_mag_pilot, pdegree) -</Value>
+    </Rotate>
+  </Element>
+  <Element>
+    <Position X="120" Y="120"/>
+    <Image Name="Heading_OBS.bmp" ImageSizes="17,180,17,180">
+      <Axis X="9" Y="90"/>
+    </Image>
+    <Rotate>
+      <Value>(A:sim/cockpit/radios/nav1_obs_degm, pdegree) (A:sim/cockpit2/gauges/indicators/heading_AHARS_deg_mag_pilot, pdegree) -</Value>
+    </Rotate>
+  </Element>
+  <Element>
+    <Image Name="Heading_Pointer.bmp" ImageSizes="240,240,240,240"/>    
+  </Element>
+  <Element>
+    <Image Name="Heading_Overlay.bmp" ImageSizes="240,240,240,240"/>
+  </Element> 
+</Gauge>

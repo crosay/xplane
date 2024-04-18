@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Gauge Name="B58 Attitude Indicator" Version="1.0">
+  <Image Name="B58_Attitude_Background.bmp" ImageSizes="240,240,240,240"/>
+  <Element>
+    <Position X="120" Y="120"/>
+    <Image Name="B58_Attitude_Background.bmp" ImageSizes="240,240,240,240">
+      <Axis X="120" Y="120"/>
+    </Image>
+    <Rotate>
+      <Value>(A:sim/cockpit2/gauges/indicators/roll_AHARS_deg_pilot, ndegree)</Value>
+    </Rotate>
+  </Element>
+  <Element>
+    <Position X="120" Y="120"/>
+    <Image Name="B58_Attitude_Inner.bmp" ImageSizes="240,240,240,240">
+      <Axis X="120" Y="120"/>
+    </Image>
+    <Shift>
+      <Value Minimum="-25" Maximum="25">(A:sim/cockpit2/gauges/indicators/pitch_AHARS_deg_pilot, negative)</Value>
+      <Scale Y="0.85"/>
+    </Shift>
+    <Rotate>
+      <Value>(A:sim/cockpit2/gauges/indicators/roll_AHARS_deg_pilot, ndegree)</Value>
+    </Rotate>
+  </Element>
+  <Element>
+    <Position X="120" Y="120"/>
+    <Image Name="B58_Attitude_Outer.bmp" ImageSizes="240,240,240,240">
+      <Axis X="120" Y="120"/>
+    </Image>
+    <Rotate>
+      <Value>(A:sim/cockpit2/gauges/indicators/roll_AHARS_deg_pilot, ndegree)</Value>
+    </Rotate>
+  </Element>
+  <Element>
+    <Position X="0" Y="0"/>
+    <Image Name="B58_Attitude_mockup.bmp" ImageSizes="240,175,240,175">
+    </Image>
+    <Shift>
+      <Value Minimum="-25" Maximum="25">(A:sim/cockpit/misc/ah_adjust, negative)</Value>
+      <Scale Y="0.85"/>
+    </Shift>
+  </Element>
+  <Element>
+    <Position X="0" Y="0"/>
+    <Image Name="B58_vacuum.bmp" ImageSizes="240,240,240,240">
+    </Image>
+  </Element>
+  <Element>
+    <Position X="120" Y="120"/>
+    <Image Name="B58_Attitude_Outer.bmp" ImageSizes="240,240,240,240">
+      <Axis X="120" Y="120"/>
+    </Image>
+    <Rotate>
+      <Value>(A:sim/cockpit2/gauges/indicators/roll_AHARS_deg_pilot, ndegree)</Value>
+    </Rotate>
+  </Element>
+
+</Gauge>

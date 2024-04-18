@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Gauge Name="B58 Airspeed Indicator" Version="1.0">
+
+  <Image Name="Airspeed_background.bmp" ImageSizes="240,240,240,240"/>
+  <Element>
+    <Position X="120" Y="120"/>
+    <Image Name="Airspeed_Needle.bmp" ImageSizes="109,15,109,15">
+      <Axis X="9" Y="7"/>
+    </Image>
+    <Rotate>
+      <Value Minimum="0" Maximum="260">(A:sim/cockpit2/gauges/indicators/airspeed_kts_pilot)</Value>
+      <Failures>
+        <GAUGE_AIRSPEED Action="Freeze"/>
+      </Failures>
+      <Nonlinearity>
+        <Item Value="0" X="120" Y="20"/>
+        <Item Value="40" X="155" Y="26"/>
+        <Item Value="120" X="171" Y="205"/>
+        <Item Value="170" X="35" Y="162"/>
+        <Item Value="260" X="91" Y="26"/>
+      </Nonlinearity>
+    </Rotate>
+  </Element>
+  <Element>
+    <Position X="112" Y="112"/>
+    <Image Name="Airspeed_Center.bmp" ImageSizes="16,16,16,16"/>
+  </Element>
+</Gauge>

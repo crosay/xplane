@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Gauge Name="Turn Indicator" Version="1.0">
+  <Image Name="TurnIndicator_Background.bmp" ImageSizes="240,240,240,240"/>
+  <Element>
+    <Image Name="TurnIndicator_Ball.bmp" ImageSizes="21,25,21,25">
+      <Axis X="10" Y="0"/>
+    </Image>
+    <Shift>
+      <Value Minimum="-8" Maximum="8">(A:sim/cockpit2/gauges/indicators/slip_deg)</Value>
+      <Nonlinearity>
+        <Item Value="-8" X="45" Y="154"/>
+        <Item Value="0" X="110" Y="157"/>
+        <Item Value="8" X="175" Y="154"/>
+      </Nonlinearity>
+      <Failures>
+        <GAUGE_TURN_COORDINATOR Action="Freeze"/>
+      </Failures>
+    </Shift>
+  </Element>
+  <Element>
+    <Position X="42" Y="153"/>
+    <Image Name="TurnIndicator_Mask.bmp" ImageSizes="155,32,155,32"/>
+  </Element>
+  <Element>
+    <Position X="120" Y="120"/>
+    <Image Name="TurnIndicator_Plane.bmp" PointsTo="East" ImageSizes="155,42,155,42">
+      <Axis X="77" Y="28"/>
+    </Image>
+    <Rotate>
+      <Value Minimum="-40" Maximum="40">(A:sim/cockpit2/gauges/indicators/turn_rate_heading_deg_pilot)</Value>
+      <Nonlinearity>
+        <Item Value="-35" X="200" Y="85"/>
+        <Item Value="0" X="200" Y="120"/>
+        <Item Value="35" X="200" Y="155"/>
+      </Nonlinearity>
+      <Failures>
+        <GAUGE_TURN_COORDINATOR Action="Freeze"/>
+        <SYSTEM_ELECTRICAL_PANELS Action="0"/>
+      </Failures>
+    </Rotate>
+  </Element>
+</Gauge>

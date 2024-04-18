@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Gauge Name="C172 Airspeed Indicator" Version="1.0">
+
+  <Image Name="C172_Airspeed_Background.bmp" ImageSizes="240,240,240,240"/>
+  
+  <Element>
+    <Position X="120" Y="120"/>
+    <Image Name="C172_Airspeed_True_Speed.bmp" ImageSizes="240,240,240,240">
+      <Axis X="120" Y="120" PointsTo="East"/>
+    </Image>
+    <Rotate>
+      <Value Minimum="-1" Maximum="1">(A:laminar/c172/knob_TAS)</Value>
+      <Nonlinearity>
+        <Item Value="1" X="153" Y="6"/>
+        <Item Value="0" X="227" Y="672"/>
+        <Item Value="-1" X="232" Y="160"/>
+
+      </Nonlinearity>
+    </Rotate>
+  </Element>
+  <Element>
+    <Position X="0" Y="0"/>
+    <Image Name="C172_Airspeed_Background.bmp" ImageSizes="240,240,240,240"/>
+  </Element>
+  <Element>
+    <Position X="120" Y="120"/>
+    <Image Name="C172_Airspeed_Needle.bmp" ImageSizes="90,12,90,12">
+      <Axis X="10" Y="5"/>
+    </Image>
+    <Rotate>
+      <Value Minimum="0" Maximum="200">(A:sim/cockpit2/gauges/indicators/airspeed_kts_pilot)</Value>
+      <Failures>
+        <GAUGE_AIRSPEED Action="Freeze"/>
+      </Failures>
+      <Nonlinearity>
+        <Item Value="0" X="120" Y="30"/>
+        <Item Value="40" X="167" Y="42"/>
+        <Item Value="100" X="146" Y="207"/>
+        <Item Value="140" X="41" Y="168"/>
+        <Item Value="160" X="28" Y="112"/>
+      </Nonlinearity>
+    </Rotate>
+  </Element>
+
+  <Element>
+    <Position X="106" Y="106"/>
+    <Image Name="C172_Airspeed_Center.bmp" ImageSizes="27,27,27,27"/>
+  </Element>
+</Gauge>

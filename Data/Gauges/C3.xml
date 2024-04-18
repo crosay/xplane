@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Gauge Name="c3" Version="1.0">
+<!-- 
+DFHFLIGHT Gauge C3  Prop Eng
+
+
+Display background black or photo
+-->
+   <Image Name="C3_back_4.bmp" ImageSizes="240,240,240,240" />
+<!-- 
+
+Display egt and cht
+-->
+   <Element>
+      <Position X="10 " Y="10" />
+      <Image Name="c3_TEMP_RL.bmp" ImageSizes="100,100,100,100">
+      </Image>
+   </Element>
+
+<!-- 
+Display and rotate EGT needle
+-->
+
+   <Element>
+      <Position X="20" Y="60" />
+      <Image Name="C3_egt_needle1.bmp" ImageSizes="13,90,13,90">
+         <Axis X="6" Y="45" />
+      </Image>
+      <Rotate>
+        <Value Minimum="0" Maximum="1">(A:sim/flightmodel/engine/ENGN_EGT:0)</Value>
+        <Nonlinearity>
+          <Item Value="0.9375" X="0" Y="0"/>
+          <Item Value="0.0" X="100" Y="0"/>
+        </Nonlinearity>	
+      </Rotate>
+   </Element>
+
+
+   <Element>
+      <Position X="20" Y="60" />
+      <Image Name="C3_egt_needle2.bmp" ImageSizes="13,90,13,90">
+         <Axis X="6" Y="45" />
+      </Image>
+      <Rotate>
+         <Value Minimum="0" Maximum="1">(A:sim/flightmodel/engine/ENGN_EGT:1)</Value>
+       <Nonlinearity>
+         <Item Value="0.9375" X="0" Y="0"/>
+         <Item Value="0.0" X="100" Y="0"/>
+       </Nonlinearity>	
+      </Rotate>
+   </Element>
+
+<!-- 
+Display and rotate CHT needle
+-->
+
+   <Element>
+      <Position X="100" Y="60" />
+      <Image Name="C3_cht_needle1.bmp" ImageSizes="13,90,13,90">
+         <Axis X="6" Y="45" />
+      </Image>
+      <Rotate>
+         <Value Minimum="0" Maximum="500">(A:sim/flightmodel/engine/ENGN_CHT_c:0, degcf)</Value>
+       <Nonlinearity>
+        <Item Value="0" X="0" Y="-20"/>
+	      <Item Value="100" X="30" Y="0"/>
+        <Item Value="200" X="60" Y="0"/>
+        <Item Value="300" X="90" Y="0"/>
+        <Item Value="400" X="120" Y="0"/>
+        <Item Value="500" X="150" Y="0"/>
+       </Nonlinearity>
+      </Rotate>
+   </Element>
+
+   <Element>
+      <Position X="100" Y="60" />
+      <Image Name="C3_cht_needle2.bmp" ImageSizes="13,90,13,90">
+         <Axis X="6" Y="45" />
+      </Image>
+      <Rotate>
+         <Value Minimum="0" Maximum="500">(A:sim/flightmodel/engine/ENGN_CHT_c:1, degcf)</Value>
+       <Nonlinearity>
+        <Item Value="0" X="0" Y="-20"/>
+	      <Item Value="100" X="30" Y="0"/>
+        <Item Value="200" X="60" Y="0"/>
+        <Item Value="300" X="90" Y="0"/>
+        <Item Value="400" X="120" Y="0"/>
+        <Item Value="500" X="150" Y="0"/>
+       </Nonlinearity>
+      </Rotate>
+   </Element>
+
+
+<!-- 
+
+Display  RPM
+
+-->
+   <Element>
+      <Position X="130" Y="10" />
+      <Image Name="c3_RPM_RL.bmp" ImageSizes="100,100,100,100">
+      </Image>
+   </Element>
+
+<!-- 
+Display and rotate rpm needles
+-->
+
+   <Element>
+      <Position X="180" Y="60" />
+      <Image Name="C3_rpm_needle1.bmp" ImageSizes="13,90,13,90">
+         <Axis X="6" Y="45" />
+      </Image>
+      <Rotate>
+       <Value Minimum="0" Maximum="360">(A:sim/cockpit2/engine/indicators/engine_speed_rpm:0) 285 /</Value>
+       <Nonlinearity>
+         <Item Value="0" X="120" Y="0"/>
+         <Item Value="15" X="135" Y="36"/>
+         <Item Value="30" X="205" Y="144"/>
+         <Item Value="60" X="89" Y="199"/>
+         <Item Value="360" X="104" Y="36"/>
+       </Nonlinearity>
+     </Rotate>
+   </Element>
+
+   <Element>
+      <Position X="180" Y="60" />
+      <Image Name="C3_rpm_needle2.bmp" ImageSizes="13,90,13,90">
+         <Axis X="6" Y="45" />
+      </Image>
+      <Rotate>
+         <Value Minimum="0" Maximum="360">(A:sim/cockpit2/engine/indicators/engine_speed_rpm:1) 285 /</Value>
+       <Nonlinearity>
+        <Item Value="0" X="120" Y="0"/>
+        <Item Value="15" X="135" Y="36"/>
+        <Item Value="30" X="205" Y="144"/>
+        <Item Value="60" X="89" Y="199"/>
+        <Item Value="360" X="104" Y="36"/>
+       </Nonlinearity>
+      </Rotate>
+   </Element>
+
+<!--
+
+Display  FUEL
+
+-->
+   <Element>
+      <Position X="130" Y="130" />
+      <Image Name="C3_FUEL_RL.bmp" ImageSizes="100,100,100,100">
+      </Image>
+   </Element>
+<!-- 
+Display and rotate fuel needles
+  The unit of the data reference sim/aircraft/weight/acf_m_fuel_tot is kgs not lbs which is wrong in the SDK doc
+-->
+   <Element>
+      <Position X="220" Y="180" />
+      <Image Name="C3_fuel_needle1.bmp" ImageSizes="13,90,13,90">
+         <Axis X="6" Y="45" />
+      </Image>
+      <Rotate>
+         <Value Minimum="0" Maximum="360" >(A:sim/flightmodel/weight/m_fuel2) (A:sim/aircraft/weight/acf_m_fuel_tot) / (A:sim/aircraft/overflow/acf_tank_rat:1) / 100 *</Value>
+       <Nonlinearity>
+        <Item Value="0" X="0" Y="0"/>
+        <Item Value="25" X="90" Y="0"/>
+        <Item Value="46" X="180" Y="0"/>
+        <Item Value="68" X="240" Y="0"/>
+        <Item Value="100" X="340" Y="0"/>
+       </Nonlinearity>
+      </Rotate>
+   </Element>
+
+   <Element>
+      <Position X="140" Y="180" />
+      <Image Name="C3_fuel_needle2.bmp" ImageSizes="13,90,13,90">
+         <Axis X="6" Y="45" />
+      </Image>
+      <Rotate>
+         <Value Minimum="00" Maximum="360" >(A:sim/flightmodel/weight/m_fuel1) (A:sim/aircraft/weight/acf_m_fuel_tot) / (A:sim/aircraft/overflow/acf_tank_rat:0) / 100 *</Value>
+       <Nonlinearity>
+        <Item Value="100" X="10" Y="0"/>
+        <Item Value="75" X="90" Y="0"/>
+        <Item Value="50" X="180" Y="0"/>
+        <Item Value="25" X="240" Y="0"/>
+        <Item Value="0" X="350" Y="30"/>
+       </Nonlinearity>
+      </Rotate>
+   </Element>
+
+<!--
+
+Display  oil
+
+-->
+   <Element>
+      <Position X="10" Y="130" />
+      <Image Name="C3_OIL_RL.bmp" ImageSizes="100,100,100,100">
+         </Image>
+   </Element>
+<!-- 
+
+Display and rotate fuel needles
+
+-->
+   <Element>
+      <Position X="100" Y="180" />
+      <Image Name="C3_oil_needle1.bmp" ImageSizes="13,90,13,90">
+         <Axis X="6" Y="45" />
+      </Image>
+      <Rotate>
+         <Value Minimum="0" Maximum="360">(A:sim/cockpit2/engine/indicators/oil_pressure_psi:0, psi) 35 /</Value>
+       <Nonlinearity>
+        <Item Value="0" X="0" Y="100"/>
+        <Item Value="20" X="2" Y="0"/>
+        <Item Value="40" X="4" Y="0"/>
+        <Item Value="60" X="6" Y="0"/>
+        <Item Value="80" X="8" Y="0"/>
+        <Item Value="120" X="10" Y="0"/>
+        <Item Value="130" X="11" Y="0"/>
+       </Nonlinearity>
+      </Rotate>
+   </Element>
+
+   <Element>
+      <Position X="100" Y="180" />
+      <Image Name="C3_oil_needle2.bmp" ImageSizes="13,90,13,90">
+         <Axis X="6" Y="45" />
+      </Image>
+      <Rotate>
+         <Value Minimum="0" Maximum="360">(A:sim/cockpit2/engine/indicators/oil_pressure_psi:1, psi) 35 /</Value>
+       <Nonlinearity>
+        <Item Value="0" X="0" Y="100"/>
+        <Item Value="20" X="2" Y="0"/>
+        <Item Value="40" X="4" Y="0"/>
+        <Item Value="60" X="6" Y="0"/>
+        <Item Value="80" X="8" Y="0"/>
+        <Item Value="120" X="10" Y="0"/>
+        <Item Value="130" X="11" Y="0"/>
+       </Nonlinearity>
+      </Rotate>
+   </Element>
+
+   <Element>
+      <Position X="20" Y="180" />
+      <Image Name="C3_temp_needle1.bmp" ImageSizes="13,90,13,90">
+         <Axis X="6" Y="45" />
+      </Image>
+      <Rotate>
+         <Value Minimum="0" Maximum="360">(A:sim/cockpit2/engine/indicators/oil_temperature_deg_C:0, degcf)</Value>
+       <Nonlinearity>
+        <Item Value="245" X="0" Y="150"/>
+	      <Item Value="200" X="100" Y="100"/>
+	      <Item Value="150" X="200" Y="50"/>
+        <Item Value="100" X="300" Y="5"/>
+        <Item Value="75" X="320" Y="1"/>
+        <Item Value="0" X="360" Y="0"/>
+       </Nonlinearity>
+      </Rotate>
+   </Element>
+
+   <Element>
+      <Position X="20" Y="180" />
+      <Image Name="C3_temp_needle2.bmp" ImageSizes="13,90,13,90">
+         <Axis X="6" Y="45" />
+      </Image>
+      <Rotate>
+         <Value Minimum="0" Maximum="360">(A:sim/cockpit2/engine/indicators/oil_temperature_deg_C:1, degcf)</Value>
+       <Nonlinearity>
+        <Item Value="245" X="0" Y="150"/>
+	      <Item Value="200" X="100" Y="100"/>
+	      <Item Value="150" X="200" Y="50"/>
+        <Item Value="100" X="300" Y="5"/>
+        <Item Value="75" X="320" Y="1"/>
+        <Item Value="0" X="360" Y="0"/>
+       </Nonlinearity>
+      </Rotate>
+   </Element>
+</Gauge>
+

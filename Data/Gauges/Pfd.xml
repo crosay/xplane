@@ -1,0 +1,889 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Gauge Name="pfd" Version="1.0">
+<!-- 
+
+Black background - PFD off 
+
+-->
+   <Image Name="pfd_background.bmp" ImageSizes="240,240,240,240" />
+
+<!-- 
+
+Display shift and rotate attitude background
+
+-->
+   <Element>
+      <Position X="119" Y="60" />
+
+      <Image Name="pfd_attitude_inner_background.bmp" ImageSizes="520,600,520,600">
+         <Axis X="260" Y="299" />
+      </Image>
+
+      <Shift>
+         <Value Minimum="-90" Maximum="90">(A:sim/cockpit2/gauges/indicators/pitch_AHARS_deg_pilot)</Value>
+         <Scale Y="-2.6" />
+      </Shift>
+
+      <Rotate>
+         <Value>(A:sim/cockpit2/gauges/indicators/roll_AHARS_deg_pilot, ndegree)</Value>
+      </Rotate>
+   </Element>
+
+<!-- 
+
+Display shift and rotate attitude inner
+
+-->
+   <Element>
+      <Position X="119" Y="60" />
+
+      <Image Name="pfd_attitude_inner.bmp" ImageSizes="520,600,520,600">
+         <Axis X="260" Y="299" />
+      </Image>
+
+      <Shift>
+         <Value Minimum="-90" Maximum="90">(A:sim/cockpit2/gauges/indicators/pitch_AHARS_deg_pilot)</Value>
+         <Scale Y="-2.6" />
+      </Shift>
+
+      <Rotate>
+         <Value>(A:sim/cockpit2/gauges/indicators/roll_AHARS_deg_pilot, ndegree)</Value>
+      </Rotate>
+   </Element>
+
+<!-- 
+
+Display pfd mask 
+
+-->
+   <Element>
+      <Position X="0" Y="0" />
+
+      <Image Name="PFD_mask.bmp" ImageSizes="240,240,240,240" />
+   </Element>
+
+<!-- 
+
+Display attitude pointer 
+
+-->
+   <Element>
+      <Position X="59" Y="0" />
+
+      <Image Name="pfd_attitude_pointer.bmp" ImageSizes="120,120,120,120" />
+   </Element>
+
+<!--
+ 
+Display turn indicator 
+
+-->
+   <Element>
+      <Position X="114" Y="22" />
+
+      <Image Name="pfd_turn_indicator.bmp" ImageSizes="12,4,12,4" />
+
+      <Shift>
+         <Value Minimum="-1" Maximum="1">(A:sim/cockpit2/gauges/indicators/slip_deg, negative)</Value>
+
+         <Nonlinearity>
+            <Item Value="-1" X="-12" Y="0" />
+
+            <Item Value="0" X="0" Y="0" />
+
+            <Item Value="1" X="12" Y="0" />
+         </Nonlinearity>
+      </Shift>
+   </Element>
+
+<!-- 
+
+Display outer
+
+-->
+   <Element>
+      <Position X="119" Y="60" />
+
+      <Image Name="pfd_outer.bmp" ImageSizes="120,120,120,120">
+         <Axis X="59" Y="60" />
+      </Image>
+
+      <Rotate>
+         <Value>(A:sim/cockpit2/gauges/indicators/roll_AHARS_deg_pilot, ndegree)</Value>
+      </Rotate>
+   </Element>
+
+<!-- 
+
+Display and shift speed scale 
+
+-->
+   <Element>
+      <Position X="0" Y="0" />
+
+      <MaskImage Name="pfd_speed_mask.bmp" ImageSizes="60,120,60,120">
+         <Axis X="0" Y="60" />
+      </MaskImage>
+
+      <Image Name="pfd_speed_scale.bmp" ImageSizes="60,898,60,898">
+         <Nonlinearity>
+            <Item Value="0" X="0" Y="741" />
+
+            <Item Value="420" X="0" Y="153" />
+         </Nonlinearity>
+      </Image>
+
+      <Shift>
+         <Value Minimum="0" Maximum="420">(A:sim/cockpit2/gauges/indicators/airspeed_kts_pilot)</Value>
+      </Shift>
+   </Element>
+
+<!-- 
+
+Display and shift speed bug
+
+-->
+   <Element>
+      <Position X="53" Y="51" />
+
+      <Image Name="pfd_speed_bug.bmp" ImageSizes="8,18,8,18">
+         <Nonlinearity>
+            <Item Value="-43" X="0" Y="-60" />
+
+            <Item Value="+43" X="0" Y="+60" />
+         </Nonlinearity>
+      </Image>
+
+      <Shift>
+         <Value Minimum="-43" Maximum="43">(A:sim/cockpit2/gauges/indicators/airspeed_kts_pilot) (A:sim/cockpit2/autopilot/airspeed_dial_kts_mach) -</Value>
+      </Shift>
+   </Element>
+
+<!-- 
+
+Display speed display mask 
+
+-->
+   <Element>
+      <Position X="0" Y="51" />
+
+      <Image Name="pfd_speed_display_mask.bmp" ImageSizes="60,18,60,18" />
+   </Element>
+
+<!-- 
+
+Display and shift speed 0 to 9 (x100)
+
+-->
+   <Element>
+      <Position X="1" Y="53" />
+
+      <MaskImage Name="pfd_character_mask.bmp" ImageSizes="12,14,12,14">
+         <Axis X="0" Y="0" />
+      </MaskImage>
+
+      <Image Name="pfd_figure_scale.bmp" ImageSizes="12,168,12,168">
+         <Nonlinearity>
+            <Item Value="0" X="0" Y="140" />
+
+            <Item Value="9" X="0" Y="14" />
+         </Nonlinearity>
+      </Image>
+
+      <Shift>
+         <Value Minimum="0" Maximum="9">(A:sim/cockpit2/gauges/indicators/airspeed_kts_pilot) 100 div</Value>
+      </Shift>
+   </Element>
+
+<!-- 
+
+Display and shift speed 0 to 9 (x10)
+
+-->
+   <Element>
+      <Position X="17" Y="53" />
+
+      <MaskImage Name="pfd_character_mask.bmp" ImageSizes="12,14,12,14">
+         <Axis X="0" Y="0" />
+      </MaskImage>
+
+      <Image Name="pfd_figure_scale.bmp" ImageSizes="12,168,12,168">
+         <Nonlinearity>
+            <Item Value="0" X="0" Y="140" />
+
+            <Item Value="9" X="0" Y="14" />
+         </Nonlinearity>
+      </Image>
+
+      <Shift>
+         <Value Minimum="0" Maximum="9">(A:sim/cockpit2/gauges/indicators/airspeed_kts_pilot) 10 div (A:sim/cockpit2/gauges/indicators/airspeed_kts_pilot) 100 div 10 * -</Value>
+      </Shift>
+   </Element>
+
+<!-- 
+
+Display and shift speed 0 to 9 (x1)
+
+-->
+   <Element>
+      <Position X="33" Y="53" />
+
+      <MaskImage Name="pfd_character_mask.bmp" ImageSizes="12,14,12,14">
+         <Axis X="0" Y="0" />
+      </MaskImage>
+
+      <Image Name="pfd_figure_scale.bmp" ImageSizes="12,168,12,168">
+         <Nonlinearity>
+            <Item Value="0" X="0" Y="140" />
+
+            <Item Value="9" X="0" Y="14" />
+         </Nonlinearity>
+      </Image>
+
+      <Shift>
+         <Value Minimum="0" Maximum="9">(A:sim/cockpit2/gauges/indicators/airspeed_kts_pilot) (A:sim/cockpit2/gauges/indicators/airspeed_kts_pilot) 10 div 10 * - %</Value>
+      </Shift>
+   </Element>
+
+<!-- 
+
+Display and shift altitude  
+
+-->
+   <Element>
+      <Position X="180" Y="0" />
+
+      <MaskImage Name="pfd_altitude_mask.bmp" ImageSizes="60,120,60,120">
+         <Axis X="0" Y="60" />
+      </MaskImage>
+
+      <Image Name="pfd_altitude.bmp" ImageSizes="60,1500,60,1500">
+         <Nonlinearity>
+            <Item Value="0" X="0" Y="1343" />
+
+            <Item Value="60000" X="0" Y="143" />
+         </Nonlinearity>
+      </Image>
+
+      <Shift>
+         <Value Minimum="0" Maximum="60000">(A:sim/cockpit2/gauges/indicators/altitude_ft_pilot)</Value>
+      </Shift>
+   </Element>
+
+<!-- 
+
+Display and shift altitude bug
+
+-->
+   <Element>
+      <Position X="180" Y="51" />
+
+      <Image Name="pfd_alt_bug.bmp" ImageSizes="8,18,8,18">
+         <Nonlinearity>
+            <Item Value="-3000" X="0" Y="-60" />
+
+            <Item Value="+3000" X="0" Y="+60" />
+         </Nonlinearity>
+      </Image>
+
+      <Shift>
+         <Value Minimum="-3000" Maximum="3000">(A:sim/cockpit2/gauges/indicators/altitude_ft_pilot) (A:sim/cockpit/autopilot/altitude) -</Value>
+      </Shift>
+   </Element>
+
+<!-- 
+
+Display altitude display mask 
+
+-->
+   <Element>
+      <Position X="180" Y="51" />
+
+      <Image Name="pfd_alt_display_mask.bmp" ImageSizes="60,18,60,18" />
+   </Element>
+
+<!-- 
+
+Display and shift altitude 0 to 99 (x1000)
+
+-->
+   <Element>
+      <Position X="189" Y="53" />
+
+      <MaskImage Name="pfd_2characters_mask.bmp" ImageSizes="23,14,23,14">
+         <Axis X="0" Y="0" />
+      </MaskImage>
+
+      <Image Name="pfd_2figures_scale.bmp" ImageSizes="23,1428,23,1428">
+         <Nonlinearity>
+            <Item Value="0" X="0" Y="1401" />
+
+            <Item Value="99" X="0" Y="15" />
+         </Nonlinearity>
+      </Image>
+
+      <Shift>
+         <Value Minimum="0" Maximum="99">(A:sim/cockpit2/gauges/indicators/altitude_ft_pilot) 1000 div</Value>
+      </Shift>
+   </Element>
+
+<!-- 
+
+Display and shift altitude 0 to 99 (x10)
+
+-->
+   <Element>
+      <Position X="213" Y="55" />
+
+      <MaskImage Name="pfd_2characters_small_mask.bmp" ImageSizes="15,10,15,10">
+         <Axis X="0" Y="0" />
+      </MaskImage>
+
+      <Image Name="pfd_2figures_small_scale.bmp" ImageSizes="15,1020,15,1020">
+         <Nonlinearity>
+            <Item Value="0" X="0" Y="1000" />
+
+            <Item Value="99" X="0" Y="10" />
+         </Nonlinearity>
+      </Image>
+
+      <Shift>
+         <Value Minimum="0" Maximum="99">(A:sim/cockpit2/gauges/indicators/altitude_ft_pilot) (A:sim/cockpit2/gauges/indicators/altitude_ft_pilot) 1000 div 1000 * - 10 div</Value>
+      </Shift>
+   </Element>
+
+<!-- 
+
+Display QNH mask 
+
+-->
+   <Element>
+      <Position X="180" Y="120" />
+
+      <Image Name="pfd_QNH_mask.bmp" ImageSizes="60,20,60,20" />
+   </Element>
+
+<!-- 
+
+Display and shift QNH 0 to 99 (x1)
+
+-->
+   <Element>
+      <Position X="203" Y="125" />
+
+      <MaskImage Name="pfd_2characters_small_mask.bmp" ImageSizes="15,10,15,10">
+         <Axis X="0" Y="0" />
+      </MaskImage>
+
+      <Image Name="pfd_2figures_small_scale.bmp" ImageSizes="15,1020,15,1020">
+         <Nonlinearity>
+            <Item Value="0" X="0" Y="1000" />
+
+            <Item Value="99" X="0" Y="10" />
+         </Nonlinearity>
+      </Image>
+
+      <Shift>
+         <Value Minimum="0" Maximum="99">(A:sim/cockpit2/gauges/actuators/barometer_setting_in_hg_pilot) 1 div 1 * - %</Value>
+      </Shift>
+   </Element>
+
+<!-- 
+
+Display and shift QNH 0 to 99 (x0.01)
+
+-->
+   <Element>
+      <Position X="222" Y="125" />
+
+      <MaskImage Name="pfd_2characters_small_mask.bmp" ImageSizes="15,10,15,10">
+         <Axis X="0" Y="0" />
+      </MaskImage>
+
+      <Image Name="pfd_2figures_small_scale.bmp" ImageSizes="15,1020,15,1020">
+         <Nonlinearity>
+            <Item Value="0" X="0" Y="1000" />
+
+            <Item Value="99" X="0" Y="10" />
+         </Nonlinearity>
+      </Image>
+
+      <Shift>
+         <Value Minimum="0" Maximum="99">(A:sim/cockpit2/gauges/actuators/barometer_setting_in_hg_pilot) (A:sim/cockpit2/gauges/actuators/barometer_setting_in_hg_pilot) % - 100 *</Value>
+      </Shift>
+   </Element>
+
+<!-- 
+
+Display and shift vsi  
+
+-->
+   <Element>
+      <Position X="185" Y="140" />
+
+      <MaskImage Name="pfd_vsi_mask.bmp" ImageSizes="55,100,55,100">
+         <Axis X="0" Y="50" />
+      </MaskImage>
+
+      <Image Name="pfd_vsi_scale.bmp" ImageSizes="55,840,55,840">
+         <Nonlinearity>
+            <Item Value="9000" X="0" Y="60" />
+
+            <Item Value="0" X="0" Y="420" />
+
+            <Item Value="-9000" X="0" Y="780" />
+         </Nonlinearity>
+      </Image>
+
+      <Shift>
+         <Value Minimum="-9000" Maximum="9000">(A:sim/cockpit2/gauges/indicators/vvi_fpm_pilot)</Value>
+      </Shift>
+   </Element>
+
+<!-- 
+
+Display and shift vsi bug
+
+-->
+   <Element>
+      <Position X="185" Y="181" />
+
+      <Image Name="pfd_vsi_bug.bmp" ImageSizes="8,18,8,18">
+         <Nonlinearity>
+            <Item Value="-1250" X="0" Y="-50" />
+
+            <Item Value="+1250" X="0" Y="+50" />
+         </Nonlinearity>
+      </Image>
+
+      <Shift>
+         <Value Minimum="-1250" Maximum="1250">(A:sim/cockpit2/gauges/indicators/vvi_fpm_pilot) (A:sim/cockpit2/autopilot/vvi_dial_fpm) -</Value>
+      </Shift>
+   </Element>
+
+<!-- 
+
+Display vsi display mask 
+
+-->
+   <Element>
+      <Position X="185" Y="181" />
+
+      <Image Name="pfd_vsi_display_mask.bmp" ImageSizes="55,18,55,18" />
+   </Element>
+
+<!-- 
+
+Display vsi sign
+
+-->
+   <Element>
+      <Position X="190" Y="183" />
+
+      <MaskImage Name="pfd_character_mask.bmp" ImageSizes="12,14,12,14">
+         <Axis X="0" Y="0" />
+      </MaskImage>
+
+      <Image Name="pfd_sign_scale.bmp" ImageSizes="12,70,12,70">
+         <Nonlinearity>
+            <Item Value="-1" X="0" Y="45" />
+
+            <Item Value="0" X="0" Y="28" />
+
+            <Item Value="1" X="0" Y="13" />
+         </Nonlinearity>
+      </Image>
+
+      <Shift>
+         <Value Minimum="-1" Maximum="1">(A:sim/cockpit2/gauges/indicators/vvi_fpm_pilot)</Value>
+      </Shift>
+   </Element>
+
+<!-- 
+
+Display vsi (x1000)
+
+-->
+   <Element>
+      <Position X="202" Y="183" />
+
+      <MaskImage Name="pfd_character_mask.bmp" ImageSizes="12,14,12,14">
+         <Axis X="0" Y="0" />
+      </MaskImage>
+
+      <Image Name="pfd_figure_scale.bmp" ImageSizes="12,168,12,168">
+         <Nonlinearity>
+            <Item Value="0" X="0" Y="140" />
+
+            <Item Value="9" X="0" Y="14" />
+         </Nonlinearity>
+      </Image>
+
+      <Shift>
+         <Value Minimum="0" Maximum="9">(A:sim/cockpit2/gauges/indicators/vvi_fpm_pilot) abs 1000 div</Value>
+      </Shift>
+   </Element>
+
+<!-- 
+
+Display vsi (x100)
+
+-->
+   <Element>
+      <Position X="214" Y="185" />
+
+      <MaskImage Name="pfd_2characters_small_mask.bmp" ImageSizes="15,10,15,10">
+         <Axis X="0" Y="0" />
+      </MaskImage>
+
+      <Image Name="pfd_2figures_small_scale.bmp" ImageSizes="15,1020,15,1020">
+         <Nonlinearity>
+            <Item Value="0" X="0" Y="1000" />
+
+            <Item Value="99" X="0" Y="10" />
+         </Nonlinearity>
+      </Image>
+
+      <Shift>
+         <Value Minimum="0" Maximum="99">(A:sim/cockpit2/gauges/indicators/vvi_fpm_pilot) abs 10 div (A:sim/cockpit2/gauges/indicators/vvi_fpm_pilot) abs 1000 div 100 * -</Value>
+      </Shift>
+   </Element>
+
+<!-- 
+
+Display  and rotate heading
+
+-->
+   <Element>
+      <Position X="120" Y="190" />
+
+      <Image Name="pfd_heading_card.bmp" ImageSizes="100,100,100,100">
+         <Axis X="50" Y="50" />
+      </Image>
+
+      <Rotate>
+         <Value>(A:sim/cockpit2/gauges/indicators/heading_AHARS_deg_mag_pilot, ndegree)</Value>
+      </Rotate>
+   </Element>
+
+<!-- 
+
+Display heading pointer 
+
+-->
+   <Element>
+      <Position X="104" Y="120" />
+
+      <Image Name="pfd_heading_pointer_mask.bmp" ImageSizes="32,20,32,20" />
+   </Element>
+
+<!-- 
+
+Display and shift point 0 to 3 (x1)
+
+-->
+   <Element>
+      <Position X="104" Y="120" />
+
+      <MaskImage Name="pfd_character_mask.bmp" ImageSizes="12,14,12,14">
+         <Axis X="0" Y="0" />
+      </MaskImage>
+
+      <Image Name="pfd_figure_scale.bmp" ImageSizes="12,168,12,168">
+         <Nonlinearity>
+            <Item Value="0" X="0" Y="140" />
+
+            <Item Value="9" X="0" Y="14" />
+         </Nonlinearity>
+      </Image>
+
+      <Shift>
+         <Value Minimum="0" Maximum="9">(A:sim/cockpit2/gauges/indicators/heading_AHARS_deg_mag_pilot) 100 div</Value>
+      </Shift>
+   </Element>
+
+<!-- 
+
+Display and shift point 0 to 99 (x1)
+
+-->
+   <Element>
+      <Position X="113" Y="120" />
+
+      <MaskImage Name="pfd_2characters_mask.bmp" ImageSizes="23,14,23,14">
+         <Axis X="0" Y="0" />
+      </MaskImage>
+
+      <Image Name="pfd_2figures_scale.bmp" ImageSizes="23,1428,23,1428">
+         <Nonlinearity>
+            <Item Value="0" X="0" Y="1401" />
+
+            <Item Value="99" X="0" Y="15" />
+         </Nonlinearity>
+      </Image>
+
+      <Shift>
+         <Value Minimum="0" Maximum="99">(A:sim/cockpit2/gauges/indicators/heading_AHARS_deg_mag_pilot) (A:sim/cockpit2/gauges/indicators/heading_AHARS_deg_mag_pilot) 100 div 100 * - %</Value>
+      </Shift>
+   </Element>
+
+<!-- 
+
+Display and rotate heading bug
+
+-->
+   <Element>
+      <Position X="120" Y="190" />
+
+      <Image Name="pfd_heading_bug.bmp" ImageSizes="18,57,18,57">
+         <Axis X="9" Y="57" />
+      </Image>
+
+      <Rotate>
+         <Value>(A:sim/cockpit2/autopilot/heading_dial_deg_mag_pilot, pdegree) (A:sim/cockpit2/gauges/indicators/heading_AHARS_deg_mag_pilot, pdegree) -</Value>
+      </Rotate>
+   </Element>
+
+<!-- 
+
+Display and rotate VOR1 needle
+
+-->
+   <Element>
+      <Position X="120" Y="190" />
+
+      <Image Name="pfd_vor1_needle.bmp" ImageSizes="13,90,13,90">
+         <Axis X="6" Y="45" />
+      </Image>
+
+      <Rotate>
+         <Value>(A:sim/cockpit2/radios/indicators/nav1_relative_bearing_deg, pdegree)</Value>
+      </Rotate>
+   </Element>
+
+<!-- 
+
+Display and rotate VOR2 needle
+
+-->
+   <Element>
+      <Position X="120" Y="190" />
+
+      <Image Name="pfd_vor2_needle.bmp" ImageSizes="15,90,15,90">
+         <Axis X="7" Y="45" />
+      </Image>
+
+      <Rotate>
+         <Value>(A:sim/cockpit2/radios/indicators/nav2_relative_bearing_deg, pdegree)</Value>
+      </Rotate>
+   </Element>
+
+<!-- 
+
+Display Mach mask 
+
+-->
+   <Element>
+      <Position X="0" Y="122" />
+
+      <Image Name="pfd_mach_mask.bmp" ImageSizes="52,20,52,20" />
+   </Element>
+
+<!-- 
+
+Display and shift mach 0 to 9 (x1)
+
+-->
+   <Element>
+      <Position X="15" Y="125" />
+
+      <MaskImage Name="pfd_character_mask.bmp" ImageSizes="12,14,12,14">
+         <Axis X="0" Y="0" />
+      </MaskImage>
+
+      <Image Name="pfd_figure_scale.bmp" ImageSizes="12,168,12,168">
+         <Nonlinearity>
+            <Item Value="0" X="0" Y="140" />
+
+            <Item Value="9" X="0" Y="14" />
+         </Nonlinearity>
+      </Image>
+
+      <Shift>
+         <Value Minimum="0" Maximum="9">(A:sim/cockpit2/autopilot/airspeed_dial_kts_mach)</Value>
+      </Shift>
+   </Element>
+
+<!-- 
+
+Display and shift mach 0 to 99 (x0.01)
+
+-->
+   <Element>
+      <Position X="29" Y="125" />
+
+      <MaskImage Name="pfd_2characters_mask.bmp" ImageSizes="23,14,23,14">
+         <Axis X="0" Y="0" />
+      </MaskImage>
+
+      <Image Name="pfd_2figures_scale.bmp" ImageSizes="23,1428,23,1428">
+         <Nonlinearity>
+            <Item Value="0" X="0" Y="1401" />
+
+            <Item Value="99" X="0" Y="15" />
+         </Nonlinearity>
+      </Image>
+
+      <Shift>
+         <Value Minimum="0" Maximum="99">(A:sim/cockpit2/autopilot/airspeed_dial_kts_mach) (A:sim/cockpit2/autopilot/airspeed_dial_kts_mach) % - 100 * %</Value>
+      </Shift>
+   </Element>
+
+<!-- 
+
+Display flaps mask 
+
+-->
+   <Element>
+      <Position X="0" Y="144" />
+
+      <Image Name="pfd_flaps_mask.bmp" ImageSizes="38,20,38,20" />
+   </Element>
+
+<!-- 
+
+Display and shift flaps  (x1)
+
+-->
+   <Element>
+      <Position X="12" Y="147" />
+
+      <MaskImage Name="pfd_2characters_mask.bmp" ImageSizes="23,14,23,14">
+         <Axis X="0" Y="0" />
+      </MaskImage>
+
+      <Image Name="pfd_2figures_scale.bmp" ImageSizes="23,1428,23,1428">
+         <Nonlinearity>
+            <Item Value="0" X="0" Y="1401" />
+
+            <Item Value="99" X="0" Y="15" />
+         </Nonlinearity>
+      </Image>
+
+      <Shift>
+         <Value Minimum="0" Maximum="99">(A:sim/flightmodel2/controls/flap1_deploy_ratio) (A:sim/flightmodel2/controls/flap1_deploy_ratio) (A:sim/flightmodel2/controls/flap2_deploy_ratio) (A:sim/flightmodel2/controls/flap2_deploy_ratio)</Value>
+      </Shift>
+   </Element>
+
+<!-- 
+
+Display DME mask 
+
+-->
+   <Element>
+      <Position X="26" Y="176" />
+
+      <Image Name="pfd_dme_mask.bmp" ImageSizes="34,60,34,60" />
+   </Element>
+
+<!-- 
+
+Display and shift DME1 0 to 9 (x100)
+
+-->
+   <Element>
+      <Position X="27" Y="188" />
+
+      <MaskImage Name="pfd_character_mask.bmp" ImageSizes="12,14,12,14">
+         <Axis X="0" Y="0" />
+      </MaskImage>
+
+      <Image Name="pfd_figure_scale.bmp" ImageSizes="12,168,12,168">
+         <Nonlinearity>
+            <Item Value="0" X="0" Y="140" />
+
+            <Item Value="9" X="0" Y="14" />
+         </Nonlinearity>
+      </Image>
+
+      <Shift>
+         <Value Minimum="0" Maximum="9">(A:sim/cockpit2/radios/indicators/nav1_dme_distance_nm) 100 div</Value>
+      </Shift>
+   </Element>
+
+<!-- 
+
+Display and shift DME1 0 to 99 (x1)
+
+-->
+   <Element>
+      <Position X="36" Y="188" />
+
+      <MaskImage Name="pfd_2characters_mask.bmp" ImageSizes="23,14,23,14">
+         <Axis X="0" Y="0" />
+      </MaskImage>
+
+      <Image Name="pfd_2figures_scale.bmp" ImageSizes="23,1428,23,1428">
+         <Nonlinearity>
+            <Item Value="0" X="0" Y="1401" />
+
+            <Item Value="99" X="0" Y="15" />
+         </Nonlinearity>
+      </Image>
+
+      <Shift>
+         <Value Minimum="0" Maximum="99">(A:sim/cockpit2/radios/indicators/nav1_dme_distance_nm) (A:sim/cockpit2/radios/indicators/nav1_dme_distance_nm) 100 div 100 * - %</Value>
+      </Shift>
+   </Element>
+
+<!-- 
+
+Display and shift DME2 0 to 9 (x100)
+
+-->
+   <Element>
+      <Position X="27" Y="219" />
+
+      <MaskImage Name="pfd_character_mask.bmp" ImageSizes="12,14,12,14">
+         <Axis X="0" Y="0" />
+      </MaskImage>
+
+      <Image Name="pfd_figure_scale.bmp" ImageSizes="12,168,12,168">
+         <Nonlinearity>
+            <Item Value="0" X="0" Y="140" />
+
+            <Item Value="9" X="0" Y="14" />
+         </Nonlinearity>
+      </Image>
+
+      <Shift>
+         <Value Minimum="0" Maximum="9">(A:sim/cockpit2/radios/indicators/nav2_dme_distance_nm) 100 div</Value>
+      </Shift>
+   </Element>
+
+<!-- 
+
+Display and shift DME2 0 to 99 (x1)
+
+-->
+   <Element>
+      <Position X="36" Y="219" />
+
+      <MaskImage Name="pfd_2characters_mask.bmp" ImageSizes="23,14,23,14">
+         <Axis X="0" Y="0" />
+      </MaskImage>
+
+      <Image Name="pfd_2figures_scale.bmp" ImageSizes="23,1428,23,1428">
+         <Nonlinearity>
+            <Item Value="0" X="0" Y="1401" />
+
+            <Item Value="99" X="0" Y="15" />
+         </Nonlinearity>
+      </Image>
+
+      <Shift>
+         <Value Minimum="0" Maximum="99">(A:sim/cockpit2/radios/indicators/nav2_dme_distance_nm) (A:sim/cockpit2/radios/indicators/nav2_dme_distance_nm) 100 div 100 * - %</Value>
+      </Shift>
+   </Element>
+</Gauge>
+

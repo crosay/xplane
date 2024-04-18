@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GaugeList>
+  <X52Pro>
+    <ComNav radio1="true"/>
+    <ComNav radio1="false"/>
+    <Adf/>
+    <Dme/>
+    <Xpndr/>
+    <Autopilot/>
+    <VorHdg/>
+  </X52Pro>
+  <!--
+  Currently the following event types are supported:
+  1. Key: xplm_key_* - XPLMCommandKeyID defined in http://www.xsquawkbox.net/xpsdk/docs/XPLMUtilities.html
+  2. Button: xplm_joy_* - XPLMCommandButtonID defined in http://www.xsquawkbox.net/xpsdk/docs/XPLMUtilities.html
+  3. Command: sim/* - XPLCommandRef
+  4. VInput: VK_* - The event is *. For exmaple Event="SHIFT" is VK_SHIFT. Combine multiple inputs with +.
+  5. String: Display any string specified in the Event field on the screen.
+  !-->
+  <Gauge Timeout="100" RootFolder="Relative" File="Gauges\Altimeter.xml">
+    <Button Id="1" Name="Main" Event="Shift+7" Type="VInput" Visible="yes"/>
+    <Button Id="2" Name="Map" Event="sim/map/show_current" Type="Command" Visible="yes"/>    
+    <Button Id="3" Name="Pause" Event="xplm_key_pause" Type="Key" Visible="yes"/>
+    <Button Id="4" Name="Outside" Event="Shift+4" Type="VInput" Visible="yes"/>
+    <Button Id="5" Name="3DView" Event="Shift+9" Type="VInput" Visible="yes"/>
+    <Button Id="6" Name="FullScreen" Event="sim/operation/toggle_full_screen" Type="Command" Visible="yes"/>
+    <Button Id="7" Name="Left Dec" Event="sim/instruments/barometer_up" Type="Command" Visible="no" />
+    <Button Id="8" Name="Left Inc" Event="sim/instruments/barometer_down" Type="Command" Visible="no" />
+    <Button Id="11" Name="Right Dec" Event="sim/instruments/barometer_up" Type="Command" Visible="no" />
+    <Button Id="12" Name="Right Inc" Event="sim/instruments/barometer_down" Type="Command" Visible="no" />
+  </Gauge>
+  <Gauge Timeout="100" RootFolder="Relative" File="Gauges\Airspeed.xml">
+    <Button Id="1" Name="Main" Event="Shift+7" Type="VInput" Visible="yes"/>
+    <Button Id="2" Name="Map" Event="sim/map/show_current" Type="Command" Visible="yes"/>
+    <Button Id="3" Name="Pause" Event="xplm_key_pause" Type="Key" Visible="yes"/>
+    <Button Id="4" Name="Outside" Event="Shift+4" Type="VInput" Visible="yes"/>
+    <Button Id="5" Name="3DView" Event="Shift+9" Type="VInput" Visible="yes"/>
+    <Button Id="6" Name="FullScreen" Event="sim/operation/toggle_full_screen" Type="Command" Visible="yes"/>
+  </Gauge>
+  <Gauge Timeout="100" RootFolder="Relative" File="Gauges\Attitude.xml">
+    <Button Id="1" Name="Main" Event="Shift+7" Type="VInput" Visible="yes"/>
+    <Button Id="2" Name="Map" Event="sim/map/show_current" Type="Command" Visible="yes"/>
+    <Button Id="3" Name="Pause" Event="xplm_key_pause" Type="Key" Visible="yes"/>
+    <Button Id="4" Name="Outside" Event="Shift+4" Type="VInput" Visible="yes"/>
+    <Button Id="5" Name="3DView" Event="Shift+9" Type="VInput" Visible="yes"/>
+    <Button Id="6" Name="FullScreen" Event="sim/operation/toggle_full_screen" Type="Command" Visible="yes"/>
+  </Gauge>
+  <Gauge Timeout="100" RootFolder="Relative" File="Gauges\Heading.xml">
+    <Button Id="1" Name="Main" Event="Shift+7" Type="VInput" Visible="yes"/>
+    <Button Id="2" Name="Map" Event="sim/map/show_current" Type="Command" Visible="yes"/>
+    <Button Id="3" Name="Pause" Event="xplm_key_pause" Type="Key" Visible="yes"/>
+    <Button Id="4" Name="Outside" Event="Shift+4" Type="VInput" Visible="yes"/>
+    <Button Id="5" Name="3DView" Event="Shift+9" Type="VInput" Visible="yes"/>
+    <Button Id="6" Name="FullScreen" Event="sim/operation/toggle_full_screen" Type="Command" Visible="yes"/>
+    <Button Id="7" Name="Left Dec" Event="sim/radios/obs1_up" Type="Command" Visible="no" />
+    <Button Id="8" Name="Left Inc" Event="sim/radios/obs1_down" Type="Command" Visible="no" />
+    <Button Id="11" Name="Right Dec" Event="sim/autopilot/heading_up" Type="Command" Visible="no" />
+    <Button Id="12" Name="Right Inc" Event="sim/autopilot/heading_down" Type="Command" Visible="no" />
+  </Gauge>
+  <Gauge Timeout="100" RootFolder="Relative" File="Gauges\TurnIndicator.xml">
+    <Button Id="1" Name="Main" Event="Shift+7" Type="VInput" Visible="yes"/>
+    <Button Id="2" Name="Map" Event="sim/map/show_current" Type="Command" Visible="yes"/>
+    <Button Id="3" Name="Pause" Event="xplm_key_pause" Type="Key" Visible="yes"/>
+    <Button Id="4" Name="Outside" Event="Shift+4" Type="VInput" Visible="yes"/>
+    <Button Id="5" Name="3DView" Event="Shift+9" Type="VInput" Visible="yes"/>
+    <Button Id="6" Name="FullScreen" Event="sim/operation/toggle_full_screen" Type="Command" Visible="yes"/>
+  </Gauge>
+  <Gauge Timeout="100" RootFolder="Relative" File="Gauges\VerticalSpeed.xml">
+    <Button Id="1" Name="Main" Event="Shift+7" Type="VInput" Visible="yes"/>
+    <Button Id="2" Name="Map" Event="sim/map/show_current" Type="Command" Visible="yes"/>
+    <Button Id="3" Name="Pause" Event="xplm_key_pause" Type="Key" Visible="yes"/>
+    <Button Id="4" Name="Outside" Event="Shift+4" Type="VInput" Visible="yes"/>
+    <Button Id="5" Name="3DView" Event="Shift+9" Type="VInput" Visible="yes"/>
+    <Button Id="6" Name="FullScreen" Event="sim/operation/toggle_full_screen" Type="Command" Visible="yes"/>
+  </Gauge>
+  <Gauge Timeout="100" RootFolder="Relative" File="Gauges\hsib.xml">
+    <Button Id="1" Name="Main" Event="Shift+7" Type="VInput" Visible="yes"/>
+    <Button Id="2" Name="Map" Event="sim/map/show_current" Type="Command" Visible="yes"/>
+    <Button Id="3" Name="Pause" Event="xplm_key_pause" Type="Key" Visible="yes"/>
+    <Button Id="4" Name="Outside" Event="Shift+4" Type="VInput" Visible="yes"/>
+    <Button Id="5" Name="3DView" Event="Shift+9" Type="VInput" Visible="yes"/>
+    <Button Id="6" Name="FullScreen" Event="sim/operation/toggle_full_screen" Type="Command" Visible="yes"/>
+    <Button Id="7" Name="Left Dec" Event="sim/radios/obs1_up" Type="Command" Visible="no" />
+    <Button Id="8" Name="Left Inc" Event="sim/radios/obs1_down" Type="Command" Visible="no" />
+    <Button Id="11" Name="Right Dec" Event="sim/autopilot/heading_up" Type="Command" Visible="no" />
+    <Button Id="12" Name="Right Inc" Event="sim/autopilot/heading_down" Type="Command" Visible="no" />
+  </Gauge>
+  <Gauge Timeout="100" RootFolder="Relative" File="Gauges\vor1.xml">
+    <Button Id="1" Name="Main" Event="Shift+7" Type="VInput" Visible="yes"/>
+    <Button Id="2" Name="Map" Event="sim/map/show_current" Type="Command" Visible="yes"/>
+    <Button Id="3" Name="Pause" Event="xplm_key_pause" Type="Key" Visible="yes"/>
+    <Button Id="4" Name="Outside" Event="Shift+4" Type="VInput" Visible="yes"/>
+    <Button Id="5" Name="3DView" Event="Shift+9" Type="VInput" Visible="yes"/>
+    <Button Id="6" Name="FullScreen" Event="sim/operation/toggle_full_screen" Type="Command" Visible="yes"/>
+    <Button Id="7" Name="Left Dec" Event="sim/radios/obs1_up" Type="Command" Visible="no" />
+    <Button Id="8" Name="Left Inc" Event="sim/radios/obs1_down" Type="Command" Visible="no" />
+    <Button Id="11" Name="Right Dec" Event="sim/radios/obs1_up" Type="Command" Visible="no" />
+    <Button Id="12" Name="Right Inc" Event="sim/radios/obs1_down" Type="Command" Visible="no" />
+  </Gauge>
+  <Gauge Timeout="100" RootFolder="Relative" File="Gauges\adf.xml">
+    <Button Id="1" Name="Main" Event="Shift+7" Type="VInput" Visible="yes"/>
+    <Button Id="2" Name="Map" Event="sim/map/show_current" Type="Command" Visible="yes"/>
+    <Button Id="3" Name="Pause" Event="xplm_key_pause" Type="Key" Visible="yes"/>
+    <Button Id="4" Name="Outside" Event="Shift+4" Type="VInput" Visible="yes"/>
+    <Button Id="5" Name="3DView" Event="Shift+9" Type="VInput" Visible="yes"/>
+    <Button Id="6" Name="FullScreen" Event="sim/operation/toggle_full_screen" Type="Command" Visible="yes"/>
+    <Button Id="7" Name="Left Dec" Event="sim/radios/actv_adf1_ones_up" Type="Command" Visible="no" />
+    <Button Id="8" Name="Left Inc" Event="sim/radios/actv_adf1_ones_down" Type="Command" Visible="no" />
+    <Button Id="11" Name="Right Dec" Event="sim/radios/adf1_card_up" Type="Command" Visible="no" />
+    <Button Id="12" Name="Right Inc" Event="sim/radios/adf1_card_down" Type="Command" Visible="no" />
+	</Gauge>
+  <Gauge Timeout="100" RootFolder="Relative" File="Gauges\vor2.xml">
+    <Button Id="1" Name="Main" Event="Shift+7" Type="VInput" Visible="yes"/>
+    <Button Id="2" Name="Map" Event="sim/map/show_current" Type="Command" Visible="yes"/>
+    <Button Id="3" Name="Pause" Event="xplm_key_pause" Type="Key" Visible="yes"/>
+    <Button Id="4" Name="Outside" Event="Shift+4" Type="VInput" Visible="yes"/>
+    <Button Id="5" Name="3DView" Event="Shift+9" Type="VInput" Visible="yes"/>
+    <Button Id="6" Name="FullScreen" Event="sim/operation/toggle_full_screen" Type="Command" Visible="yes"/>
+    <Button Id="7" Name="Left Dec" Event="sim/radios/obs2_up" Type="Command" Visible="no" />
+    <Button Id="8" Name="Left Inc" Event="sim/radios/obs2_down" Type="Command" Visible="no" />
+    <Button Id="11" Name="Right Dec" Event="sim/radios/obs2_up" Type="Command" Visible="no" />
+    <Button Id="12" Name="Right Inc" Event="sim/radios/obs2_down" Type="Command" Visible="no" />
+  </Gauge>
+  <Gauge Timeout="100" RootFolder="Relative" File="Gauges\c3.xml">
+    <Button Id="1" Name="Main" Event="Shift+7" Type="VInput" Visible="yes"/>
+    <Button Id="2" Name="Map" Event="sim/map/show_current" Type="Command" Visible="yes"/>
+    <Button Id="3" Name="Pause" Event="xplm_key_pause" Type="Key" Visible="yes"/>
+    <Button Id="4" Name="Outside" Event="Shift+4" Type="VInput" Visible="yes"/>
+    <Button Id="5" Name="3DView" Event="Shift+9" Type="VInput" Visible="yes"/>
+    <Button Id="6" Name="FullScreen" Event="sim/operation/toggle_full_screen" Type="Command" Visible="yes"/>
+  </Gauge>
+  <Gauge Timeout="100" RootFolder="Relative" File="Gauges\PFD.xml">
+    <Button Id="1" Name="Main" Event="Shift+7" Type="VInput" Visible="yes"/>
+    <Button Id="2" Name="Map" Event="sim/map/show_current" Type="Command" Visible="yes"/>
+    <Button Id="3" Name="Pause" Event="xplm_key_pause" Type="Key" Visible="yes"/>
+    <Button Id="4" Name="Outside" Event="Shift+4" Type="VInput" Visible="yes"/>
+    <Button Id="5" Name="3DView" Event="Shift+9" Type="VInput" Visible="yes"/>
+    <Button Id="6" Name="FullScreen" Event="sim/operation/toggle_full_screen" Type="Command" Visible="yes"/>
+    <Button Id="7" Name="Left Dec" Event="sim/autopilot/heading_up" Type="Command" Visible="no" />
+    <Button Id="8" Name="Left Inc" Event="sim/autopilot/heading_down" Type="Command" Visible="no" />
+    <Button Id="11" Name="Right Dec" Event="sim/instruments/barometer_up" Type="Command" Visible="no" />
+    <Button Id="12" Name="Right Inc" Event="sim/instruments/barometer_down" Type="Command" Visible="no" />
+   </Gauge>
+  <Gauge Timeout="100" RootFolder="Relative" File="B58\Engines.xml">
+    <Button Id="7" Name="Left Dec" Event="lua/b58/lighting/dec_flight_inst" Type="Command" Visible="no" />
+    <Button Id="8" Name="Left Inc" Event="lua/b58/lighting/inc_flight_inst" Type="Command" Visible="no" />
+    <Button Id="11" Name="Right Dec" Event="lua/b58/lighting/dec_inst_flood_rheo" Type="Command" Visible="no" />
+    <Button Id="12" Name="Right Inc" Event="lua/b58/lighting/inc_inst_flood_rheo" Type="Command" Visible="no" />
+   </Gauge>
+  <Gauge Timeout="100" RootFolder="Relative" File="B58\Altimeter.xml">
+    <Button Id="7" Name="Left Dec" Event="sim/instruments/barometer_down" Type="Command" Visible="no" />
+    <Button Id="8" Name="Left Inc" Event="sim/instruments/barometer_up" Type="Command" Visible="no" />
+  </Gauge>
+  <Gauge Timeout="100" RootFolder="Relative" File="B58\Airspeed.xml">
+  </Gauge>
+  <Gauge Timeout="100" RootFolder="Relative" File="B58\Attitude.xml">
+    <Button Id="7" Name="Left Dec" Event="sim/instruments/ah_ref_down" Type="Command" Visible="no" />
+    <Button Id="8" Name="Left Inc" Event="sim/instruments/ah_ref_up" Type="Command" Visible="no" />
+  </Gauge>
+  <Gauge Timeout="100" RootFolder="Relative" File="B58\VerticalSpeed.xml">
+  </Gauge>
+  <Gauge Timeout="100" RootFolder="Relative" File="Gauges\TurnIndicator.xml">
+    <Button Id="5" Name="Start 1" Event="sim/starters/engage_starter_1" Type="Command" Visible="yes"/>
+    <Button Id="6" Name="Start 2" Event="sim/starters/engage_starter_2" Type="Command" Visible="yes"/>
+    <Button Id="7" Name="Left Dec" Event="sim/ignition/ignition_down_1" Type="Command" Visible="no" />
+    <Button Id="8" Name="Left Inc" Event="sim/ignition/ignition_up_1" Type="Command" Visible="no" />
+    <Button Id="11" Name="Right Dec" Event="sim/ignition/ignition_down_2" Type="Command" Visible="no" />
+    <Button Id="12" Name="Right Inc" Event="sim/ignition/ignition_up_2" Type="Command" Visible="no" />
+  </Gauge>
+  <Gauge Timeout="100" RootFolder="Relative" File="B58\hsib.xml">
+    <Button Id="1" Name="DME+" Event="laminar/b58/dme_mode_up" Type="Command" Visible="yes"/>
+    <Button Id="2" Name="DME-" Event="laminar/b58/dme_mode_dwn" Type="Command" Visible="yes"/>
+    <Button Id="7" Name="Left Dec" Event="sim/radios/obs1_down" Type="Command" Visible="no" />
+    <Button Id="8" Name="Left Inc" Event="sim/radios/obs1_up" Type="Command" Visible="no" />
+    <Button Id="11" Name="Right Dec" Event="sim/autopilot/heading_down" Type="Command" Visible="no" />
+    <Button Id="12" Name="Right Inc" Event="sim/autopilot/heading_up" Type="Command" Visible="no" />
+  </Gauge>
+  <Gauge Timeout="100" RootFolder="Relative" File="C172\Engines.xml">
+    <Button Id="7" Name="Left Dec" Event="lua/b58/lighting/dec_flight_inst" Type="Command" Visible="no" />
+    <Button Id="8" Name="Left Inc" Event="lua/b58/lighting/inc_flight_inst" Type="Command" Visible="no" />
+    <Button Id="11" Name="Right Dec" Event="lua/b58/lighting/dec_inst_flood_rheo" Type="Command" Visible="no" />
+    <Button Id="12" Name="Right Inc" Event="lua/b58/lighting/inc_inst_flood_rheo" Type="Command" Visible="no" />
+   </Gauge>
+  <Gauge Timeout="100" RootFolder="Relative" File="C172\Airspeed.xml">
+    <Button Id="7" Name="Left Dec" Event="lua/c172/inc_knob_TAS" Type="Command" Visible="no" />
+    <Button Id="8" Name="Left Inc" Event="lua/c172/dec_knob_TAS" Type="Command" Visible="no" />
+  </Gauge>
+  <Gauge Timeout="100" RootFolder="Relative" File="C172\Directional.xml">
+    <Button Id="7" Name="Left Dec" Event="sim/instruments/DG_sync_down" Type="Command" Visible="no" />
+    <Button Id="8" Name="Left Inc" Event="sim/instruments/DG_sync_up" Type="Command" Visible="no" />
+    <Button Id="11" Name="Right Dec" Event="sim/autopilot/heading_down" Type="Command" Visible="no" />
+    <Button Id="12" Name="Right Inc" Event="sim/autopilot/heading_up" Type="Command" Visible="no" />
+  </Gauge>
+
+</GaugeList>

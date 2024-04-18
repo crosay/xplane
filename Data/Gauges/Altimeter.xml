@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Gauge Name="Altimeter" Version="1.0">
+  <Image Name="Altimeter_Background.bmp" ImageSizes="240,240,240,240"/>
+  <Element>
+    <Position X="164" Y="108"/>
+    <MaskImage Name="B58-altimeter-baro-setting-mask-mb.bmp" ImageSizes="40,15,40,15">
+      <Axis X="0" Y="0"/>
+    </MaskImage>
+    <Image Name="Altimeter_Strip.bmp" ImageSizes="35,699,35,699">
+      <Nonlinearity>
+        <Item Value="28.1" X="0" Y="10"/>
+        <Item Value="31.5" X="0" Y="645"/>
+      </Nonlinearity>
+    </Image>
+    <Shift>
+      <Value Minimum="28.1" Maximum="31.5">(A:sim/cockpit2/gauges/actuators/barometer_setting_in_hg_pilot)</Value>
+    </Shift>
+  </Element>
+  <Element>
+    <Position X="120" Y="120"/>
+    <Image Name="Altimeter_Needle3.bmp" ImageSizes="113,17,113,17">
+      <Axis X="5" Y="8" PointsTo="East"/>
+    </Image>
+    <Rotate>
+      <Value>(A:sim/cockpit2/gauges/indicators/altitude_ft_pilot) 10000 /</Value>
+      <Failures>
+        <GAUGE_ALTIMETER Action="Freeze"/>
+      </Failures>
+      <Nonlinearity>
+        <Item Value="0" X="120" Y="13"/>
+        <Item Value="5" X="120" Y="204"/>
+      </Nonlinearity>
+    </Rotate>
+  </Element>
+  <Element>
+    <Position X="120" Y="120"/>
+    <Image Name="Altimeter_Needle2.bmp" ImageSizes="72,17,72,17">
+      <Axis X="7" Y="8" PointsTo="East"/>
+    </Image>
+    <Rotate>
+      <Value>(A:sim/cockpit2/gauges/indicators/altitude_ft_pilot) 1000 /</Value>
+      <Failures>
+        <GAUGE_ALTIMETER Action="Freeze"/>
+      </Failures>
+      <Nonlinearity>
+        <Item Value="0" X="120" Y="13"/>
+        <Item Value="5" X="120" Y="204"/>
+      </Nonlinearity>
+    </Rotate>
+  </Element>
+  <Element>
+    <Position X="120" Y="120"/>
+    <Image Name="Altimeter_Needle1.bmp" ImageSizes="110,15,110,15">
+      <Axis X="6" Y="7" PointsTo="East"/>
+    </Image>
+    <Rotate>
+      <Value>(A:sim/cockpit2/gauges/indicators/altitude_ft_pilot) 100 /</Value>
+      <Failures>
+        <GAUGE_ALTIMETER Action="Freeze"/>
+      </Failures>
+      <Nonlinearity>
+        <Item Value="0" X="120" Y="13"/>
+        <Item Value="5" X="120" Y="204"/>
+      </Nonlinearity>
+    </Rotate>
+  </Element>
+  <Element>
+    <Position X="112" Y="112"/>
+    <Image Name="Altimeter_Center.bmp" ImageSizes="16,16,16,16"/>
+  </Element>  
+</Gauge>

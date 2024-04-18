@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Gauge Name="C172 Directional Indicator" Version="1.0">
+
+  <Image Name="C172_Directional_Background.bmp" ImageSizes="240,240,240,240"/>
+  <Element>
+    <Position X="120" Y="120"/>
+    <Image Name="C172_Directional_Background.bmp" ImageSizes="240,240,240,240">
+      <Axis X="120" Y="120"/>
+    </Image>
+    <Rotate>
+      <Value>(A:sim/cockpit2/gauges/indicators/heading_vacuum_deg_mag_pilot, ndegree)</Value>
+    </Rotate>
+  </Element>
+  <Element>
+    <Position X="0" Y="0"/>
+    <Image Name="C172_Directional_Needle.bmp" ImageSizes="240,240,240,240"/>
+  </Element>
+  <Element>
+    <Position X="120" Y="120"/>
+    <Image Name="C172_Heading_Bug.bmp" ImageSizes="240,240,240,240">
+      <Axis X="120" Y="120"/>
+    </Image>
+    <Rotate>
+      <Value>(A:sim/cockpit/autopilot/heading_mag, pdegree) (A:sim/cockpit2/gauges/indicators/heading_vacuum_deg_mag_pilot, pdegree) -</Value>
+    </Rotate>
+  </Element>
+</Gauge>

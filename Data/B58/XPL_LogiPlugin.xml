@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GaugeList>
+  <X52Pro>
+    <ComNav radio1="true"/>
+    <ComNav radio1="false"/>
+    <Adf/>
+    <Dme/>
+    <Xpndr/>
+    <Autopilot/>
+    <VorHdg/>
+  </X52Pro>
+  <!--
+  Currently the following event types are supported:
+  1. Key: xplm_key_* - XPLMCommandKeyID defined in http://www.xsquawkbox.net/xpsdk/docs/XPLMUtilities.html
+  2. Button: xplm_joy_* - XPLMCommandButtonID defined in http://www.xsquawkbox.net/xpsdk/docs/XPLMUtilities.html
+  3. Command: sim/* - XPLCommandRef
+  4. VInput: VK_* - The event is *. For exmaple Event="SHIFT" is VK_SHIFT. Combine multiple inputs with +.
+  5. String: Display any string specified in the Event field on the screen.
+  !-->
+  <Gauge Timeout="100" RootFolder="Relative" File="B58\Engines.xml">
+    <Button Id="7" Name="Left Dec" Event="lua/b58/lighting/dec_flight_inst" Type="Command" Visible="no" />
+    <Button Id="8" Name="Left Inc" Event="lua/b58/lighting/inc_flight_inst" Type="Command" Visible="no" />
+    <Button Id="11" Name="Right Dec" Event="lua/b58/lighting/dec_inst_flood_rheo" Type="Command" Visible="no" />
+    <Button Id="12" Name="Right Inc" Event="lua/b58/lighting/inc_inst_flood_rheo" Type="Command" Visible="no" />
+   </Gauge>
+
+  <Gauge Timeout="100" RootFolder="Relative" File="B58\Altimeter.xml">
+    <Button Id="7" Name="Left Dec" Event="sim/instruments/barometer_down" Type="Command" Visible="no" />
+    <Button Id="8" Name="Left Inc" Event="sim/instruments/barometer_up" Type="Command" Visible="no" />
+  </Gauge>
+  <Gauge Timeout="100" RootFolder="Relative" File="B58\Airspeed.xml">
+  </Gauge>
+  <Gauge Timeout="100" RootFolder="Relative" File="B58\Attitude.xml">
+    <Button Id="7" Name="Left Dec" Event="sim/instruments/ah_ref_down" Type="Command" Visible="no" />
+    <Button Id="8" Name="Left Inc" Event="sim/instruments/ah_ref_up" Type="Command" Visible="no" />
+  </Gauge>
+  <Gauge Timeout="100" RootFolder="Relative" File="B58\VerticalSpeed.xml">
+  </Gauge>
+
+  <Gauge Timeout="100" RootFolder="Relative" File="B58\hsib.xml">
+    <Button Id="1" Name="DME>" Event="laminar/b58/dme_mode_up" Type="Command" Visible="yes"/>
+    <Button Id="2" Name="<DME" Event="laminar/b58/dme_mode_dw" Type="Command" Visible="yes"/>
+    <Button Id="7" Name="Left Dec" Event="sim/radios/obs1_down" Type="Command" Visible="no" />
+    <Button Id="8" Name="Left Inc" Event="sim/radios/obs1_up" Type="Command" Visible="no" />
+    <Button Id="11" Name="Right Dec" Event="sim/autopilot/heading_down" Type="Command" Visible="no" />
+    <Button Id="12" Name="Right Inc" Event="sim/autopilot/heading_up" Type="Command" Visible="no" />
+  </Gauge>
+
+</GaugeList>

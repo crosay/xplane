@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Gauge Name="c1" Version="1.0">
+
+<!-- 
+DFHFLIGHT Gauge  Vor1 b
+
+
+Display background black 
+
+-->
+
+   <Image Name="C_Background.bmp" ImageSizes="240,240,240,240"/>
+
+<!-- 
+
+Element>Display  VOR1
+
+-->
+    <Element>
+      <Position X="120" Y="120"/>
+        <Image Name="Kompass_Ring.bmp" ImageSizes="240,240,240,240">
+           <Axis X="120" Y="120"/>
+       </Image>
+         <Rotate>
+           <Value>(A:sim/cockpit/radios/nav1_obs_degm, ndegree)</Value>
+         </Rotate>
+     </Element>
+
+     <Element>
+      <Position X="1" Y="0" />
+      <Image Name="c2_vor1ib_card1.bmp" ImageSizes="240,240,240,240"> </Image>
+   </Element>
+
+<!--
+
+Flags to from vor1
+
+-->
+     <Element>
+         <Position X="138" Y="150" /> 
+            <Image Name="c2_vor_fromb.bmp">
+             </Image>
+     </Element> 
+
+     <Element>
+         <Position X="153" Y="150" /> 
+            <Image Name="c2_vor_tob.bmp">
+             </Image>
+     </Element> 
+ 
+     <Element>
+         <Position X="146" Y="150" />     
+            <Image Name="c2_tf_bugb.bmp">
+             <Axis X="5" Y="10" />
+            </Image>
+         <Shift>
+           <Value Minimum="0" Maximum="4">(A:sim/cockpit2/radios/indicators/nav1_flag_from_to_pilot:n) 2 * </Value>
+	      <Nonlinearity>
+                <Item Value="0" X="-5" Y="0"/>
+                <Item Value="2"    X="-15" Y="0"/>
+                <Item Value="4"  X="5" Y="0"/>
+               </Nonlinearity>
+         </Shift>
+      </Element>
+
+
+<!--
+
+Flags has no nav  vor1
+
+-->
+     <Element>
+         <Position X="140" Y="72" /> 
+            <Image Name="c2_vor_nonavb.bmp">
+            </Image>
+     </Element>  
+
+
+<!--
+
+Flags has nav  vor1
+
+-->
+     <Element>
+         <Position X="152" Y="85" /> 
+            <Image Name="c2_vor_navb.bmp">
+             </Image>
+     </Element>  
+
+     <Element>
+         <Position X="152" Y="85" />     
+            <Image Name="c2_tf_bugb.bmp">
+             <Axis X="1" Y="1" />
+            </Image>
+         <Shift>
+           <Value>(A:sim/cockpit/radios/nav_type:n0) 14 * </Value>
+	 </Shift>
+     </Element>
+
+     <Element>
+         <Position X="70" Y="85" /> 
+            <Image Name="c2_vor_gsb.bmp">
+             </Image>
+     </Element>  
+
+     <Element>
+         <Position X="70" Y="85" />     
+            <Image Name="c2_tf_bugb.bmp">
+             <Axis X="1" Y="1" />
+            </Image>
+         <Shift>
+           <Value>(A:sim/cockpit2/radios/indicators/nav1_flag_glideslope:n) 14 * </Value>
+	 </Shift>
+     </Element>
+
+<!-- 
+
+Display and rotate VOR1 |  needles
+
+-->
+   <Element>
+      <Position X="120" Y="50" />
+      <Image Name="c2_vorb_needle.bmp">
+         <Axis X="6" Y="10" />
+      </Image>
+      <Rotate>
+         <Value Minimum="-120" Maximum="120">(A:sim/cockpit2/radios/indicators/nav1_hdef_dots_pilot) 10 *</Value>
+      <Nonlinearity>
+        <Item Value="100" X="-35" Y="0"/>
+        <Item Value="0"    X="0" Y="0"/>
+        <Item Value="-100"  X="35" Y="75"/>
+      </Nonlinearity>
+       <Delay PixelsPerSecond="40"/>
+      </Rotate>
+   </Element>
+
+<!-- 
+
+Display and rotate VOR1 -  needles
+
+-->
+   <Element>
+      <Position X="50" Y="120" />
+      <Image Name="C2_vorb_needle.bmp">
+         <Axis X="6" Y="10" />
+      </Image>
+      <Rotate>
+         <Value Minimum="-120" Maximum="120">(A:sim/cockpit2/radios/indicators/nav1_vdef_dots_pilot) 10 *</Value>
+        <Nonlinearity>
+        <Item Value="-80" X="10" Y="-35"/>
+        <Item Value="0"    X="50" Y="0"/>
+        <Item Value="80"  X="80" Y="35"/>
+      </Nonlinearity> 
+      </Rotate>
+   </Element>
+
+</Gauge>
+

@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Gauge Name="B58 HSI" Version="1.0">
+
+<!-- 
+DFHFLIGHT Gauge  hsi b
+
+Display background and gs scale
+-->
+    <Image Name="HSIb_card_gs.bmp" ImageSizes="240,240,240,240" />
+
+<!-- 
+hsi-card  maske
+-->
+    <Element>
+        <Position X="0" Y="0" />
+        <MaskImage Name="HSIb_mask_ring.bmp">
+            <Axis X="119.5" Y="120" />
+        </MaskImage>
+    </Element>
+    <Element>
+        <Position X="120" Y="120" />
+        <Image Name="HSIb_card_hdg.bmp">
+            <Axis X="89.5" Y="89.5" />
+        </Image>
+        <Rotate>
+            <Value>(A:sim/cockpit2/gauges/indicators/heading_AHARS_deg_mag_pilot, ndegree)</Value>
+        </Rotate>
+    </Element>
+
+<!-- 
+hsi to from
+--> 
+     <Element>
+         <Position X="119.5" Y="120" /> 
+            <Image Name="HSIb_to_ring.bmp">
+             <Axis X="70" Y="71" />
+             </Image>
+         <Shift>
+           <Value Minimum="0" Maximum="2">(A:sim/cockpit2/radios/indicators/nav1_flag_from_to_pilot:n)</Value>
+	      <Nonlinearity>
+                <Item Value="0" X="0" Y="400"/>
+                <Item Value="1" X="-70" Y="-71"/>
+                <Item Value="2" X="0" Y="400"/>
+               </Nonlinearity>
+         </Shift>
+     </Element>
+     <Element>
+         <Position X="118" Y="120" /> 
+            <Image Name="HSIb_from_ring.bmp">
+             <Axis X="70" Y="71" />
+             </Image>
+         <Shift>
+           <Value Minimum="0" Maximum="2">(A:sim/cockpit2/radios/indicators/nav1_flag_from_to_pilot:n)</Value>
+	      <Nonlinearity>
+                <Item Value="0" X="0" Y="400"/>
+                <Item Value="1" X="0" Y="400"/>
+                <Item Value="2" X="-70" Y="-71"/>
+               </Nonlinearity>
+         </Shift>
+      </Element>
+
+<!-- 
+hsi-card 
+-->
+    <Element>
+        <Position X="119.5" Y="120" />
+        <Image Name="HSIb_pointer_crs_tf.bmp">
+            <Axis X="70" Y="71" />
+        </Image>
+        <Rotate>
+            <Value>(A:sim/cockpit/radios/nav1_obs_degm, pdegree) (A:sim/cockpit2/gauges/indicators/heading_AHARS_deg_mag_pilot, pdegree) -</Value>
+        </Rotate>
+    </Element>
+
+<!-- 
+hsi needle 
+--> 
+   <Element>
+        <Position X="119.5" Y="120" />
+        <Image Name="HSIb_needle.bmp">
+            <Axis X="4" Y="32.5" />
+        </Image>
+        <Shift>
+            <Value Minimum="-127" Maximum="127">(A:sim/cockpit2/radios/indicators/nav1_hdef_dots_pilot, negative) 50 *</Value> 
+             <Scale X="0.34">
+             </Scale>     
+       </Shift>
+         <Rotate>    
+            <Value>(A:sim/cockpit/radios/nav1_obs_degm, pdegree) (A:sim/cockpit2/gauges/indicators/heading_AHARS_deg_mag_pilot, pdegree) -</Value>
+         </Rotate>
+    </Element>
+
+<!-- 
+hsi gs needle 
+-->
+  <Element>
+        <Image Name="HSIb_gs_l.bmp">
+            <Axis X="4" Y="3.5" />
+        </Image>
+        <Shift>
+            <Value Minimum="-125" Maximum="120">(A:sim/cockpit2/radios/indicators/nav1_display_vertical:n) if{ (A:sim/cockpit2/radios/indicators/nav1_vdef_dots_pilot) } els{ -125 }</Value>
+            <Nonlinearity>
+                <Item Value="0" X="19" Y="116" />
+                <Item Value="-120" X="20" Y="75" />
+            </Nonlinearity>
+        </Shift>
+    </Element>
+    <Element>
+        <Image Name="HSIb_gs_r.bmp">
+            <Axis X="0" Y="3.5" />
+        </Image>
+        <Shift>
+            <Value Minimum="-125" Maximum="120">(A:sim/cockpit2/radios/indicators/nav1_display_vertical:n) if{ (A:sim/cockpit2/radios/indicators/nav1_vdef_dots_pilot) } els{ -125 }</Value>
+            <Nonlinearity>
+                <Item Value="0" X="208" Y="116" />
+                <Item Value="-120" X="208" Y="75" />
+            </Nonlinearity>
+        </Shift>
+    </Element>
+
+<!-- 
+hsi hdg flag 
+--> 
+   <Element>
+        <Position X="155" Y="20" />
+           <Image Name="HSIb_flag_hdg.bmp">
+           </Image>
+         <Shift>
+           <Value>(A:sim/cockpit2/switches/avionics_power_on:n) 40 *</Value>
+	 </Shift>
+    </Element>
+
+<!-- 
+hsi has nav flag 
+--> 
+   <Element>
+        <Position X="46" Y="20" />
+           <Image Name="HSIb_flag_nav1.bmp" ImageSizes="37,19,37,19">
+         <Nonlinearity>
+            <Item Value="0" X="-46" Y="-20" />
+            <Item Value="1" X="46" Y="20" />
+         </Nonlinearity>
+           </Image>
+      <Shift>
+         <Value Minimum="0" Maximum="1">(A:sim/cockpit2/radios/indicators/nav1_display_horizontal:n)</Value>
+      </Shift>
+
+    </Element>
+
+<!-- 
+hsi has gs flag 
+--> 
+   <Element>
+        <Position X="195" Y="55" />
+           <Image Name="HSIb_flag_gs1.bmp">
+           </Image>
+         <Shift>
+           <Value>(A:sim/cockpit2/radios/indicators/nav1_flag_glideslope:n) 120 * </Value>
+	 </Shift>
+    </Element>
+
+<!-- 
+Display and rotate ADF pointer 
+-->
+   <Element>
+        <Position X="119.5" Y="120" />
+      <Image Name="HSIb_pointer_adf.bmp">
+         <Axis X="9.5" Y="86" />
+      </Image>
+      <Rotate>
+         <Value>(A:sim/cockpit2/radios/indicators/adf1_relative_bearing_deg, ndegree)</Value>
+      </Rotate>
+   </Element>
+
+<!-- 
+Display and rotate VOR1 pointer 
+-->
+   <Element>
+        <Position X="119.5" Y="120 " />
+      <Image Name="HSIb_pointer_vor1.bmp">
+         <Axis X="9.5" Y="86" />
+      </Image>
+      <Rotate>
+         <Value>(A:sim/cockpit/radios/nav1_course_degm,pdegree) (A:sim/cockpit2/gauges/indicators/heading_AHARS_deg_mag_pilot,pdegree) - pi +</Value>
+      </Rotate>
+   </Element>
+
+<!-- 
+Display and rotate VOR2 pointer 
+
+   <Element>
+        <Position X="119.5" Y="120 " />
+      <Image Name="HSIb_pointer_vor2.bmp">
+         <Axis X="9.5" Y="86" />
+      </Image>
+      <Rotate>
+         <Value>(A:NAV2 radial,radians) (A:Plane heading degrees gyro,radians) - pi +</Value>
+      </Rotate>
+   </Element>
+-->
+
+<!--  
+hsi hdg pointer 
+--> 
+   <Element>
+        <Position X="119.5" Y="120" />
+        <Image Name="HSIb_pointer_hdg.bmp">
+            <Axis X="9.5" Y="82" />
+        </Image>
+        <Rotate>
+            <Value>(A:sim/cockpit/autopilot/heading_mag,pdegree) (A:sim/cockpit2/gauges/indicators/heading_AHARS_deg_mag_pilot,pdegree) -</Value>
+        </Rotate>
+    </Element>
+
+<!-- 
+hsi mask 
+-->
+   <Element>
+        <Position X="0" Y="0" />
+        <Image Name="HSIb_mask_front.bmp" />
+   </Element>
+
+<!-- 
+CRS Display x100
+-->
+   <Element>
+      <Position X="54" Y="200" />
+      <MaskImage Name="HSIb_character_mask.bmp" ImageSizes="12,14,12,14">
+         <Axis X="0" Y="0" />
+      </MaskImage>
+      <Image Name="HSIb_figure_scale.bmp" ImageSizes="12,168,12,168">
+       </Image>
+      <Shift>
+         <Value Minimum="0" Maximum="9">(A:sim/cockpit/radios/nav1_obs_degm) 100 div</Value>
+      </Shift>
+   </Element>
+
+<!-- 
+CRS Display 0 to 99 (x1)
+-->
+   <Element>
+      <Position X="63" Y="200" />
+      <MaskImage Name="HSIb_2characters_mask.bmp" ImageSizes="23,14,23,14">
+         <Axis X="0" Y="0" />
+      </MaskImage>
+      <Image Name="HSIb_2figures_scale.bmp" ImageSizes="23,1428,23,1428">
+         <Nonlinearity>
+            <Item Value="0" X="0" Y="1401" />
+            <Item Value="99" X="0" Y="15" />
+         </Nonlinearity>
+      </Image>
+
+      <Shift>
+         <Value Minimum="0" Maximum="99">(A:sim/cockpit/radios/nav1_obs_degm) (A:sim/cockpit/radios/nav1_obs_degm) 100 div 100 * - %</Value>
+      </Shift>
+   </Element>
+
+<!-- 
+HDG Display x100
+-->
+   <Element>
+      <Position X="154" Y="200" />
+      <MaskImage Name="HSIb_character_mask.bmp" ImageSizes="12,14,12,14">
+         <Axis X="0" Y="0" />
+      </MaskImage>
+      <Image Name="HSIb_figure_scale.bmp" ImageSizes="12,168,12,168">
+         <Nonlinearity>
+            <Item Value="0" X="0" Y="140" />
+            <Item Value="9" X="0" Y="14" />
+         </Nonlinearity>
+      </Image>
+      <Shift>
+         <Value Minimum="0" Maximum="9">(A:sim/cockpit2/gauges/indicators/heading_AHARS_deg_mag_pilot) 100 div</Value>
+      </Shift>
+   </Element>
+
+<!-- 
+HDG Display 0 to 99 (x1)
+-->
+   <Element>
+      <Position X="163" Y="200" />
+
+      <MaskImage Name="HSIb_2characters_mask.bmp" ImageSizes="23,14,23,14">
+         <Axis X="0" Y="0" />
+      </MaskImage>
+      <Image Name="HSIb_2figures_scale.bmp" ImageSizes="23,1428,23,1428">
+         <Nonlinearity>
+            <Item Value="0" X="0" Y="1401" />
+            <Item Value="99" X="0" Y="15" />
+         </Nonlinearity>
+      </Image>
+      <Shift>
+         <Value Minimum="0" Maximum="99">(A:sim/cockpit2/gauges/indicators/heading_AHARS_deg_mag_pilot) (A:sim/cockpit2/gauges/indicators/heading_AHARS_deg_mag_pilot) 100 div 100 * - %</Value>
+      </Shift>
+   </Element>
+
+<!-- 
+DME Display x100
+-->
+   <Element>
+      <Position X="97" Y="205" />
+      <MaskImage Name="HSIb_character_mask.bmp" ImageSizes="12,14,12,14">
+         <Axis X="0" Y="0" />
+      </MaskImage>
+      <Image Name="HSIb_figure_scale.bmp" ImageSizes="12,168,12,168">
+         <Nonlinearity>
+            <Item Value="0" X="0" Y="140" />
+            <Item Value="9" X="0" Y="14" />
+         </Nonlinearity>
+      </Image>
+      <Shift>
+         <Value Minimum="0" Maximum="9">(A:sim/cockpit2/radios/indicators/dme_dme_distance_nm) 100 div</Value>
+      </Shift>
+   </Element>
+
+<!-- 
+DME Display x10
+-->
+   <Element>
+      <Position X="107" Y="205" />
+      <MaskImage Name="HSIb_character_mask.bmp" ImageSizes="12,14,12,14">
+         <Axis X="0" Y="0" />
+      </MaskImage>
+      <Image Name="HSIb_figure_scale.bmp" ImageSizes="12,168,12,168">
+         <Nonlinearity>
+            <Item Value="0" X="0" Y="140" />
+            <Item Value="9" X="0" Y="14" />
+         </Nonlinearity>
+      </Image>
+      <Shift>
+         <Value Minimum="0" Maximum="9">(A:sim/cockpit2/radios/indicators/dme_dme_distance_nm) 10 div</Value>
+      </Shift>
+   </Element>
+
+<!-- 
+DME Display x1
+-->
+   <Element>
+      <Position X="117" Y="205" />
+      <MaskImage Name="HSIb_character_mask.bmp" ImageSizes="12,14,12,14">
+         <Axis X="0" Y="0" />
+      </MaskImage>
+      <Image Name="HSIb_figure_scale.bmp" ImageSizes="12,168,12,168">
+         <Nonlinearity>
+            <Item Value="0" X="0" Y="140" />
+            <Item Value="9" X="0" Y="14" />
+         </Nonlinearity>
+      </Image>
+      <Shift>
+         <Value Minimum="0" Maximum="9">(A:sim/cockpit2/radios/indicators/dme_dme_distance_nm) (A:sim/cockpit2/radios/indicators/dme_dme_distance_nm) 10 div 10 * - %</Value>
+      </Shift>
+   </Element>
+
+<!-- 
+DME Display x0.1
+-->
+   <Element>
+      <Position X="129" Y="205" />
+     <MaskImage Name="HSIb_character_mask.bmp" ImageSizes="12,14,12,14">
+         <Axis X="0" Y="0" />
+      </MaskImage>
+      <Image Name="HSIb_0.1figure_scale.bmp" ImageSizes="12,168,12,168">
+         <Nonlinearity>
+            <Item Value="0" X="0" Y="140" />
+            <Item Value="9" X="0" Y="14" />
+         </Nonlinearity>
+      </Image>
+      <Shift>
+         <Value Minimum="0" Maximum="9">(A:sim/cockpit2/radios/indicators/dme_dme_distance_nm) (A:sim/cockpit2/radios/indicators/dme_dme_distance_nm) % - 10 * %</Value>
+      </Shift>
+   </Element>
+
+<!-- 
+hsi,hdg,dme2 pic  
+-->
+   <Element>
+        <Position X="63" Y="215" />
+           <Image Name="HSIb_crs_pic.bmp">
+           </Image>
+   </Element>
+   <Element>
+        <Position X="163" Y="215" />
+           <Image Name="HSIb_hdg_pic.bmp">
+           </Image>
+   </Element>
+   <Element>
+        <Position X="110" Y="220" />
+           <Image Name="HSIb_dme2_pic.bmp">
+           </Image>
+   </Element>
+
+<!-- 
+hsi and hdg select  ok
+-->
+   <Element>
+        <Position X="208" Y="193" />
+        <Image Name="HSIb_sel_hdg.bmp">
+            <Axis X="15" Y="15" />
+        </Image>
+        <Rotate>
+            <Value>(A:sim/cockpit/radios/nav1_course_degm,pdegree) 3 *</Value>
+        </Rotate>
+    </Element>
+    <Element>
+        <Position X="32" Y="193" />
+        <Image Name="HSIb_sel_crs.bmp">
+            <Axis X="15" Y="15" />
+        </Image>
+        <Rotate>
+            <Value>(A:sim/cockpit/radios/nav1_obs_degm,pdegree) 3 *</Value>
+        </Rotate>
+    </Element>
+</Gauge>

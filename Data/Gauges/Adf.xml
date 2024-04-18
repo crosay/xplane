@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Gauge Name="ADF Indicator" Version="1.0">
+
+<!-- 
+DFHFLIGHT Gauge  ADF b
+
+-->
+
+
+
+  <Image Name="C_Background.bmp" ImageSizes="240,240,240,240"/>
+ 
+  <Element>
+    <Position X="120" Y="120"/>
+    <Image Name="ADF_Kompass_Ring.bmp" ImageSizes="240,240,240,240">
+      <Axis X="120" Y="120"/>
+    </Image>
+    <Rotate>
+      <Value>(A:sim/cockpit2/gauges/indicators/heading_AHARS_deg_mag_pilot, ndegree)</Value>
+    </Rotate>
+  </Element>
+  <Element>
+    <Position X="120" Y="120"/>
+    <Image Name="Adf_needle.bmp" ImageSizes="17,180,17,180">
+      <Axis X="90" Y="9"/>
+    </Image>
+    <Rotate>
+      <Value>(A: sim/cockpit/radios/adf1_dir_degt, pdegree) pi 2 / -</Value>
+      <Failures> 
+        <GAUGE_ADF Action="Freeze"/>
+      </Failures>
+    </Rotate>
+  </Element>   
+</Gauge>
+ 
+  

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Gauge Name="C172 Engines" Version="1.0">
+
+  <Image Name="C172_Engine_Background.bmp" ImageSizes="240,240,240,240"/>
+
+  <Element>
+    <Position X="120" Y="120"/>
+    <Image Name="C172_Engine_Needle.bmp" ImageSizes="90,12,90,12">
+      <Axis X="10" Y="5"/>
+    </Image>
+    <Rotate>
+      <Value Minimum="0" Maximum="3500">(A:sim/cockpit2/engine/indicators/engine_speed_rpm:0)</Value>
+      <Failures>
+        <GAUGE_AIRSPEED Action="Freeze"/>
+      </Failures>
+      <Nonlinearity>
+          <Item Value="0" X="47" Y="168"/>
+          <Item Value="1000" X="44" Y="78"/>
+          <Item Value="2000" X="145" Y="37"/>
+          <Item Value="3000" X="203" Y="125"/>
+      </Nonlinearity>
+    </Rotate>
+  </Element>
+
+  <Element>
+    <Position X="106" Y="106"/>
+    <Image Name="C172_Airspeed_Center.bmp" ImageSizes="27,27,27,27"/>
+  </Element>
+
+</Gauge>

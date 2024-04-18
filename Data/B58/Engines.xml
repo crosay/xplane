@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Gauge Name="B58 Engines" Version="1.0">
+
+  <Image Name="B58_engines_background.bmp" ImageSizes="240,240,240,240"/>
+
+  <Element>
+    <Position X="059" Y="59"/>
+    <Image Name="B58_engines_needle_2.bmp" ImageSizes="51,13,51,13">
+      <Axis X="1" Y="7"/>
+    </Image>
+    <Rotate>
+      <Value Minimum="0" Maximum="40">(A:sim/flightmodel/engine/ENGN_MPR:1)</Value>
+      <Failures>
+        <GAUGE_AIRSPEED Action="Freeze"/>
+      </Failures>
+      <Nonlinearity>
+          <Item Value="10" X="37" Y="18"/>
+          <Item Value="25" X="105" Y="66"/>
+      </Nonlinearity>
+    </Rotate>
+  </Element>
+
+  <Element>
+    <Position X="059" Y="59"/>
+    <Image Name="B58_engines_needle_1.bmp" ImageSizes="51,13,51,13">
+      <Axis X="1" Y="7"/>
+    </Image>
+    <Rotate>
+      <Value Minimum="0" Maximum="40">(A:sim/flightmodel/engine/ENGN_MPR:0)</Value>
+      <Failures>
+        <GAUGE_AIRSPEED Action="Freeze"/>
+      </Failures>
+      <Nonlinearity>
+          <Item Value="10" X="37" Y="18"/>
+          <Item Value="25" X="105" Y="66"/>
+      </Nonlinearity>
+    </Rotate>
+  </Element>
+
+   <Element>
+      <Position X="180" Y="59" />
+      <Image Name="B58_engines_needle_2.bmp" ImageSizes="51,13,51,13">
+      <Axis X="1" Y="7"/>
+      </Image>
+      <Rotate>
+        <Value Minimum="0" Maximum="3500">(A:sim/cockpit2/engine/indicators/engine_speed_rpm:1)</Value>
+        <Nonlinearity>
+          <Item Value="0" X="134" Y="43"/>
+          <Item Value="2000" X="224" Y="41"/>
+        </Nonlinearity>	
+      </Rotate>
+   </Element>
+
+   <Element>
+      <Position X="180" Y="59" />
+      <Image Name="B58_engines_needle_1.bmp" ImageSizes="51,13,51,13">
+      <Axis X="1" Y="7"/>
+      </Image>
+      <Rotate>
+        <Value Minimum="0" Maximum="3500">(A:sim/cockpit2/engine/indicators/engine_speed_rpm:0)</Value>
+        <Nonlinearity>
+          <Item Value="0" X="134" Y="43"/>
+          <Item Value="2000" X="224" Y="41"/>
+        </Nonlinearity>	
+      </Rotate>
+   </Element>
+
+   <Element>
+      <Position X="59" Y="180" />
+      <Image Name="B58_engines_needle_2.bmp" ImageSizes="51,13,51,13">
+      <Axis X="1" Y="7"/>
+      </Image>
+      <Rotate>
+        <Value Minimum="0" Maximum="30">(A:lua/engine/indicators/fuel_flow_gal_hour:1)</Value>
+        <Nonlinearity>
+          <Item Value="0" X="37" Y="134"/>
+          <Item Value="5.0" X="74" Y="127"/>
+          <Item Value="10.0" X="105" Y="155"/>
+          <Item Value="15" X="107" Y="196"/>
+          <Item Value="20" X="80" Y="225"/>
+          <Item Value="25" X="40" Y="226"/>
+          <Item Value="30" X="14" Y="199"/>
+        </Nonlinearity>	
+      </Rotate>
+   </Element>
+
+   <Element>
+      <Position X="59" Y="180" />
+      <Image Name="B58_engines_needle_1.bmp" ImageSizes="51,13,51,13">
+      <Axis X="1" Y="7"/>
+      </Image>
+      <Rotate>
+        <Value Minimum="0" Maximum="30">(A:lua/engine/indicators/fuel_flow_gal_hour:0)</Value>
+        <Nonlinearity>
+          <Item Value="0" X="37" Y="134"/>
+          <Item Value="5.0" X="74" Y="127"/>
+          <Item Value="10.0" X="105" Y="155"/>
+          <Item Value="15" X="107" Y="196"/>
+          <Item Value="20" X="80" Y="225"/>
+          <Item Value="25" X="40" Y="226"/>
+          <Item Value="30" X="14" Y="199"/>
+        </Nonlinearity>	
+      </Rotate>
+   </Element>
+
+   <Element>
+      <Position X="179" Y="179" />
+      <Image Name="B58_engines_needle_2.bmp" ImageSizes="51,13,51,13">
+      <Axis X="1" Y="7"/>
+      </Image>
+      <Rotate>
+        <Value Minimum="0" Maximum="100">(A:sim/flightmodel/engine/ENGN_oil_press_psi:1)</Value>
+        <Nonlinearity>
+          <Item Value="100" X="221" Y="147"/>
+          <Item Value="60" X="230" Y="165"/>
+          <Item Value="40" X="232" Y="177"/>
+          <Item Value="30" X="231" Y="185"/>
+          <Item Value="0" X="220" Y="211"/>
+        </Nonlinearity>	
+      </Rotate>
+   </Element>
+
+
+   <Element>
+      <Position X="179" Y="179" />
+      <Image Name="B58_engines_needle_1.bmp" ImageSizes="51,13,51,13">
+      <Axis X="1" Y="7"/>
+      </Image>
+      <Rotate>
+        <Value Minimum="0" Maximum="100">(A:sim/flightmodel/engine/ENGN_oil_press_psi:0)</Value>
+        <Nonlinearity>
+          <Item Value="100" X="221" Y="147"/>
+          <Item Value="60" X="230" Y="165"/>
+          <Item Value="40" X="232" Y="177"/>
+          <Item Value="30" X="231" Y="185"/>
+          <Item Value="0" X="220" Y="211"/>
+        </Nonlinearity>	
+      </Rotate>
+   </Element>
+
+   <Element>
+      <Position X="179" Y="179" />
+      <Image Name="B58_engines_needle_2.bmp" ImageSizes="51,13,51,13">
+      <Axis X="1" Y="7"/>
+      </Image>
+      <Rotate>
+        <Value Minimum="0" Maximum="120">(A:sim/flightmodel/engine/ENGN_oil_temp_c:1)</Value>
+        <Nonlinearity>
+          <Item Value="0" X="145" Y="213"/>
+          <Item Value="80" X="133" Y="168"/>
+        </Nonlinearity>	
+      </Rotate>
+   </Element>
+
+
+   <Element>
+      <Position X="179" Y="179" />
+      <Image Name="B58_engines_needle_1.bmp" ImageSizes="51,13,51,13">
+      <Axis X="1" Y="7"/>
+      </Image>
+      <Rotate>
+        <Value Minimum="0" Maximum="120">(A:sim/flightmodel/engine/ENGN_oil_temp_c:0)</Value>
+        <Nonlinearity>
+          <Item Value="0" X="145" Y="213"/>
+          <Item Value="80" X="133" Y="168"/>
+        </Nonlinearity>	
+      </Rotate>
+   </Element>
+
+  <Element>
+    <Position X="39" Y="39"/>
+    <Image Name="B58_engines_needle_cover.bmp" ImageSizes="40,40,40,40"/>
+  </Element>
+
+  <Element>
+    <Position X="160" Y="39"/>
+    <Image Name="B58_engines_needle_cover.bmp" ImageSizes="40,40,40,40"/>
+  </Element>
+
+  <Element>
+    <Position X="39" Y="160"/>
+    <Image Name="B58_engines_needle_cover.bmp" ImageSizes="40,40,40,40"/>
+  </Element>
+  <Element>
+    <Position X="160" Y="160"/>
+    <Image Name="B58_engines_needle_cover.bmp" ImageSizes="40,40,40,40"/>
+  </Element>
+
+</Gauge>
